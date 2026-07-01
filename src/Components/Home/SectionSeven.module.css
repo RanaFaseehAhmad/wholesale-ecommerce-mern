@@ -1,0 +1,70 @@
+.SectionServices {
+    width: 100%;
+    height: auto;
+    /* padding: 0 10px; */
+}
+
+.ServicesTitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.ServicesItems {
+    margin: 13px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 13px;
+
+}
+
+.ServicesItem {
+    max-width: 280px;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #E0E0E0;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.ServicesItemImg {
+    max-width: 280px;
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+.ServicesItemImg img {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+
+.ServicesItemIcon {
+    position: relative;
+    top:-9%;
+    left:78%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background-color: #D1E7FF;
+}
+
+.ServicesItemDesc {
+    font-size: 0.9rem;
+    padding: 8px;
+}
+
+.ServicesItemInfo {
+    font-weight: 500;
+    font-size: 0.8rem;
+}

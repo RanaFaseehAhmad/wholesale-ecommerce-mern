@@ -1,0 +1,9 @@
+:global(.search__control) {
+  border: 1px solid hsl(23.39deg 100% 50.2%) !important;
+  border-radius: 18px !important;
+}
+
+:global(.search__control--is-focused) {
+  border-color: linear-gradient(83deg,#ff2d0d 2.73%,#ff5e1a 26.36%,#ff6400 50%,#ff7e0d 73.64%,#ffab1a 97.27%)ange !important;
+  box-shadow: none !important;
+}

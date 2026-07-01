@@ -1,0 +1,32 @@
+.navbarDetail {
+    display: flex;
+    align-items: center;
+}
+
+.navbarPayment {
+    display: flex;
+    align-self: self-end;
+    margin-right: 5px;
+    border: none;
+}
+
+.paymentCurreny {
+    border: none;
+    outline: none;
+}
+
+.navbarShipto {
+    display: flex;
+    outline: none;
+    margin-left: 5px;
+}
+
+
+.shipCountry {
+    border: none;
+}
+
+.countryFlag {
+    width: 22px;
+    height: 16px;
+}

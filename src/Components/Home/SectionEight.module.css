@@ -1,0 +1,60 @@
+.SectionCountry {
+    width: 100%;
+    max-width: 1180px;
+    height: auto;
+    padding: 0 20px;
+}
+
+.CountryTitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.CountryLists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    /* grid-template-columns: repeat(5, 1fr); */
+    gap: 16px;
+    margin-top: 13px;
+}
+
+.CountryList {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 10px 8px;
+}
+
+.CountryImg {
+    height: 28px;
+    width: 28px;
+    flex-shrink: 0;
+}
+.CountryImg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.CountryName {
+    font-size: 0.9rem;
+}
+
+.CountryInfo {
+    font-size: 0.7rem;
+    color: #8B96A5;
+}
+@media (max-width: 454px) {
+    .CountryLists{
+       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        }
+        
+        }
+        
+@media (max-width: 345px) {
+ .CountryLists{
+    grid-template-columns: 1fr;
+  
+}
+}

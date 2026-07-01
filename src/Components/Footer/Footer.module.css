@@ -1,0 +1,210 @@
+.FooterMain {
+    display: grid;
+    grid-template-columns: 2fr repeat(5, 1fr);
+    gap: 30px;
+    width: 100%;
+    background-color: white;
+    padding: 30px 10px;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+}
+
+.FooterBrand {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 276px;
+    width: 100%;
+}
+
+.FooterLogo {
+    display: flex;
+    align-items: center;
+    max-width: 150px;
+    width: 100%;
+    height: 46px;
+}
+
+.LogoImg img,
+.LogoText img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.LogoText {
+    width: 77px;
+    height: 20px;
+
+}
+
+.FooterLogoDesc {
+    /* margin-top: 13px; */
+    max-width: 276px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #505050;
+}
+
+.LogoSocial {
+    display: flex;
+    gap: 5px;
+    width: 200px;
+    height: 32px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.LogoSocial i:hover {
+    display: flex;
+    transform: translateY(-3px);
+    color: #007bff;
+
+}
+
+.LogoSocial i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: #BDC4CD;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.footerMenuWrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px
+}
+
+.FooterAbout,
+.FooterPartnership,
+.FooterInformation,
+.FooterUser,
+.FooterGetApp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.AboutHeading,
+.PartnershipHeading {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.AboutMenu,
+.PartnershipMenu {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+}
+
+.InformationHeading,
+.UserHeading,
+.GetAppHeading {
+
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.InformationMenu,
+.UserMenu {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+}
+
+.MenuList,
+.PartnershipList,
+.InformationList,
+.UserList {
+    color: #8B96A5;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+footer a:hover {
+    color: #0D6EFD;
+}
+
+.GetAppImg {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.GetAppImg img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+.FooterCopyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    max-width: auto;
+    width: 100%;
+    height: 68px;
+    background-color: #DEE2E7;
+}
+
+.CopyrightText {
+    color: #606060;
+    font-size: 0.8rem;
+    font-weight: 400;
+
+}
+
+@media (max-width:900px) {
+    .FooterMain {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media(max-width:768px) {
+
+    .FooterMain {
+        text-align: center;
+    }
+
+    .GetAppImg {
+        align-items: center;
+    }
+
+    .FooterBrand {
+        margin: auto;
+    }
+
+    .FooterLogo {
+        justify-content: center;
+    }
+
+    .LogoSocial {
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+@media(max-width:621px) {
+.FooterLogo{
+    max-width: none;
+}
+
+}

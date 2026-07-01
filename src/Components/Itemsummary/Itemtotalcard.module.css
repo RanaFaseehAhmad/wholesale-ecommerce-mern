@@ -1,0 +1,166 @@
+.sellerInfoMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sellerInfo {
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    width: 100%;
+    border-radius: 14px;
+    padding: 24px 12px 24px 16px;
+    gap: 26px;
+    position: sticky;
+    top: 30px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+}
+
+.sellerInfo img {
+    width: 21px;
+}
+
+.sellerProfile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* max-width: 248px; */
+    width: 100%;
+    padding: 0 0 30px 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+.shippingtitle{
+    font-size: 1rem;
+}
+.shippingtitleInfo{
+    font-size: 0.875rem;
+    color: #000000;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+.popupWrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.visitPopupProtection {
+    font-size: 0.875rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.securePayment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.imgTextWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+}
+.heading{
+    font-size: 1rem;
+    margin-right: 2px;
+}
+.paymentcardBox{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.imgTextWrapper i {
+    color: green;
+}
+
+.paymentText {
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #767676;
+    font-size: 0.9rem;
+    margin-left: 25px;
+}
+
+.moneyBackWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.moneyBackProtection {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.moneyBackProtection i {
+    color: green
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sendInquirybtn,
+.chatNowbtn {
+    border-radius: 16px;
+    padding: 16px 10px;
+    font-size: 0.8rem;
+    background-color: #D64000;
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sendInquirybtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.chatNowbtn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.sendInquirybtn:hover {
+    background-color: #da5922;
+    cursor: pointer;
+}
+@media(max-width:802px) {
+    .sellerInfoMain{
+        grid-column: 1/-1;
+
+    }
+.sellerInfo {
+    box-shadow: none;
+}
+}
+@media(max-width:537px) {
+    .sellerInfo {
+        position: static;
+    }
+}

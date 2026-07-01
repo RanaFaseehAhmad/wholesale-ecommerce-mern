@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.filterSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 230px;
+    margin-right: 24px;
+}
+
+.filterSection {
+    padding: 8px 5px;
+    max-width: 230px;
+    width: 100%;
+    border-bottom: 1px solid #DEE2E7;
+}
+
+
+.ratingstarfilter :global(.p-rating-item) {
+    margin-top: 25px;
+
+}
+
+.filterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.filterTitle {
+    font-size: 0.9rem;
+}
+
+.filterList {
+    /* display: flex; */
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 5px 0 5px;
+    display: flex;
+    height: 235px;
+    overflow: auto;
+}
+
+.filterList.show {
+    display: none;
+}
+
+
+.filterList li {
+    list-style: none;
+    padding: 5px;
+}
+
+
+.see-all {
+    color: #0D6EFD;
+}
+
+.filterLink,
+.filterListitems {
+    text-decoration: none;
+    color: #505050;
+    font-size: 0.9rem;
+}
+
+.filterLink:hover {
+    color: black;
+}
+
+.filterList label:hover {
+    color: black;
+}
+
+.filterList label {
+    display: flex;
+    align-items: center;
+    color: #505050;
+    font-size: 0.9rem;
+    gap: 2px;
+}
+
+.filterSection {
+    padding: 8px 5px;
+    max-width: 230px;
+    width: 100%;
+    /* height: 208px; */
+    border-bottom: 1px solid #DEE2E7;
+}
+
+
+.filterBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 60px;
+}
+
+.filterBody input {
+    border: 1px solid #DEE2E7;
+    border-radius: 6px;
+    width: 80px;
+    padding: 6px 5px;
+    outline: none;
+}
+
+
+.filterView {
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.filterView:hover {
+    color: orange;
+}
+
+.viewContainer {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.viewMore {
+    max-height: 1000px;
+    opacity: 1
+}
+
+.viewLess {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+.filterBtn {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.clearAll,
+.showresults {
+    background-color: white;
+    outline: none;
+    padding: 5px 8px;
+    border: 1px solid #DEE2E7;
+    border-radius: 6px;
+}
+.clearAll:hover,
+.showresults:hover{
+    background-color: orange;
+    color:white
+}
+
+@media (max-width:625px) {
+    .filterSidebar {
+        display: none;
+    }
+
+    .filterSidebarOver {
+        position: absolute;
+        top: 303px;
+        z-index: 2;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 230px;
+        margin-right: 24px;
+        padding: 5px;
+
+    }
+
+    .filterView {
+        padding: 0 0 10px 10px;
+    }
+
+}

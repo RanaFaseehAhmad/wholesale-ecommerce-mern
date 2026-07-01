@@ -1,0 +1,116 @@
+.SectionConsumerElectronics {
+    display: flex;
+    width: 100%;
+    max-width: 1180px;
+    height: 257px;
+    /* border: 1px solid #DEE2E7; */
+    background-color: white;
+    border-radius: 6px;
+}
+
+.ConsumerLeftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 256px;
+}
+
+.ConsumerItemsImg {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    background-image: url("/public/MainSectionConsumer/consumer-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ConsumerItemsDesc {
+    padding: 32px 20px;
+}
+
+.ConsumerItemsDesc h4 {
+    font-size: 1.4rem;
+}
+
+.ConsumerItemsImgBtn {
+    margin-top: 16px;
+    width: 100px;
+    padding: 7px 0;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #f7fafc;
+}
+
+.ConsumerItemsImgBtn:hover {
+    background-color: white;
+    opacity: 1;
+}
+
+.SectionConsumerMain {
+    width: 100%;
+    max-width: 895px;
+    height: 256px;
+}
+
+.MainConsumerItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background-color: #DEE2E7;
+}
+
+.ConsumerItem {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 128px;
+    background: white;
+    border: none;
+}
+
+.ConsumerItemDesc {
+    padding: 32px 0 0 20px;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+    max-height: 2.6em;
+}
+
+.from {
+    color: #8B96A5;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.price {
+    color: #8B96A5;
+    font-size: 13px;
+}
+
+.ConsumerItemImg {
+    display: flex;
+    align-self: flex-end;
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ConsumerItemImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+

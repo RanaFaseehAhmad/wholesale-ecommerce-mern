@@ -1,0 +1,139 @@
+.container {
+    margin: 5px auto 0 auto;
+    width: 100%;
+    height: auto;
+    /* border: 1px solid #DEE2E7; */
+    border-radius: 6px;
+    background-color: white;
+}
+
+.recommendedWrapper {
+    max-width: 950px;
+    width: 100%;
+    margin: 5px 0 0 0;
+
+}
+
+.titleWrapper {
+    margin: 15px 0 15px 0;
+}
+
+.title {
+    /* font-size: 1rem; */
+    font-weight: 600;
+}
+
+.sliderWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 950px;
+    width: 100%;
+
+}
+
+.itemBox {
+    display: flex;
+    gap: 6px;
+    padding: 15px 0;
+    max-width: 950px;
+    width: 100%;
+    overflow-x: auto;
+    z-index: 1;
+    scrollbar-width: none;
+}
+
+.sliderBtn {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.left,
+.right {
+    border: none;
+    pointer-events: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.left:hover,
+.right:hover {
+    transform: scale(1.1);
+}
+
+.card {
+    padding: 5px;
+    flex: 0 0 180px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.imgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.info {
+    padding: 5px;
+}
+
+.itemName {
+    color: #8B96A5;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    min-height: 37px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+
+.itemPrice {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.discount {
+    width: fit-content;
+    background-color: #FFE3E3;
+    color: #EB001B;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+
+}

@@ -1,0 +1,66 @@
+.action {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 228px;
+    height: 41px;
+
+}
+
+.action a {
+    display: flex;
+    align-items: center;
+}
+
+.action img {
+    width: 37px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.actionLink {
+    text-decoration: none;
+}
+
+.colorcartIcon {
+    color: orange;
+}
+.LoginRegister{
+    display: flex;
+    align-items: center;
+   gap: 5px;
+   text-decoration: none;
+}
+.LoginRegisterText{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: black;
+    
+}
+.actionIcon {
+    color: black;
+}
+
+/* .heartIcon:hover {
+    color: red
+} */
+
+.simplecartItems {
+    color: #666666;
+}
+
+.cartItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    font-size: 0.8rem;
+    background-color: orange;
+    border-radius: 20px;
+    color: white;
+
+}

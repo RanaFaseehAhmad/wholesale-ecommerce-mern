@@ -1,0 +1,143 @@
+.filterContainer {
+    margin-top: 15px;
+    /* border: 1px solid black; */
+}
+
+.filterWrapper {
+    display: flex;
+    /* gap: 25px; */
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1800px;
+    gap: 10px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: bisque;
+    padding: 8px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+}
+
+.filterTitle {
+    font-size: 1rem;
+}
+
+.attributesSection {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    min-width: 0;
+}
+
+.buttons {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.leftNavBtn,
+.rightNavBtn {
+    pointer-events: auto;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: white;
+    font-size: 1.5rem;
+    transition: 0.2s ease;
+    cursor: pointer;
+
+}
+
+.hidden {
+    /* opacity: 0.3; */
+    pointer-events: none;
+}
+
+.attributesList {
+    padding: 0 43px;
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.attributesList::-webkit-scrollbar {
+    display: none;
+}
+
+.attributeItem {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    cursor: pointer;
+    /* border: 1px solid hsl(23.39deg 100% 50.2%); */
+    background: #ffeecd;
+}
+
+/* .attributeItem:hover {
+    border: 2px solid hsl(23.39deg 100% 50.2%);
+} */
+
+.selectedattributeItem {
+    background-color: hsl(23.39deg 100% 50.2%);
+    display: flex;
+    color: white;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    cursor: pointer;
+
+}
+
+.resetfilter {
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #b9b9b9;
+    border: none;
+    padding: 10px 5px;
+    border-left: 1px solid #DEE2E7;
+    background-color: transparent;
+
+}
+
+.activeResetfilter {
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: hsl(23.39deg 100% 50.2%);
+    border: none;
+    padding: 10px 5px;
+    border-left: 1px solid #DEE2E7;
+    background-color: transparent;
+}
+
+@media (max-width:520px) {
+    .buttons {
+        display: none;
+    }
+
+    .attributesList {
+        padding: 0;
+    }
+
+   
+}
