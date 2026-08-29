@@ -1,0 +1,2038 @@
+  {
+    "products": [
+      {
+        "category": "Electronics",
+        "categoryimage": "/MainSectionBanner/Electronics.png",
+        "items": [
+          {
+            "id": 1,
+            "name": "iPhone 15 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "apple",
+            "rating": 4.9,
+            "reviews": [
+              {
+                "id": 1,
+                "user": "faz",
+                "rating": 3,
+                "comment": "Excellent phone and camera quality."
+              },
+              {
+                "id": 2,
+                "user": "Ahmed",
+                "rating": 4,
+                "comment": "Very fast performance."
+              },
+              {
+                "id": 3,
+                "user": "Mahad",
+                "rating": 5,
+                "comment": "Excellent Quality."
+              }
+            ],
+            "price": 1300,
+            "discount": "13",
+            "tags": [
+              "apple",
+              "ios",
+              "premium",
+              "mobile",
+              "iPhone",
+              "iPhone 15 pro"
+            ],
+            "description": "Latest Apple flagship smartphone.",
+            "image": "/ItemImages/Iphone15pro.jfif"
+          },
+          {
+            "id": 2,
+            "name": "Samsung Galaxy S24 Ultra",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.8,
+            "price": 1200,
+            "discount": "",
+            "tags": [
+              "samsung",
+              "android",
+              "flagship"
+            ],
+            "description": "Ultra premium Android smartphone.",
+            "image": "/ItemImages/SamsungGalaxyS24Ultra.jfif"
+          },
+          {
+            "id": 3,
+            "name": "Google Pixel 8 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "google",
+            "rating": 4.7,
+            "price": 999,
+            "discount": "",
+            "tags": [
+              "google",
+              "android",
+              "camera"
+            ],
+            "description": "Best AI-powered camera smartphone.",
+            "image": "/ItemImages/GooglePixel8pro.jfif"
+          },
+          {
+            "id": 4,
+            "name": "OnePlus 12",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "oneplus",
+            "rating": 4.6,
+            "price": 799,
+            "discount": "",
+            "tags": [
+              "oneplus",
+              "fast",
+              "android"
+            ],
+            "description": "Fast performance flagship killer phone.",
+            "image": "/ItemImages/Oneplus12.jfif"
+          },
+          {
+            "id": 5,
+            "name": "Xiaomi 14 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.5,
+            "price": 699,
+            "discount": "",
+            "tags": [
+              "xiaomi",
+              "android",
+              "budget flagship"
+            ],
+            "description": "Affordable premium Android smartphone.",
+            "image": "/ItemImages/Xiaomi14pro.jfif"
+          },
+          {
+            "id": 6,
+            "name": "iPhone 14",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "apple",
+            "rating": 4.7,
+            "price": 899,
+            "discount": "",
+            "tags": [
+              "apple",
+              "ios",
+              "classic"
+            ],
+            "description": "Reliable Apple smartphone with great performance.",
+            "image": "/ItemImages/Iphone14.jfif"
+          },
+          {
+            "id": 7,
+            "name": "Samsung Galaxy A55",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.4,
+            "price": 450,
+            "discount": "",
+            "tags": [
+              "samsung",
+              "midrange",
+              "android"
+            ],
+            "description": "Best mid-range Samsung smartphone.",
+            "image": "/ItemImages/SamsungGalaxyA55-5g.jfif"
+          },
+          {
+            "id": 8,
+            "name": "Realme GT 5 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "realme",
+            "rating": 3.1,
+            "price": 550,
+            "discount": "",
+            "tags": [
+              "realme",
+              "performance",
+              "gaming"
+            ],
+            "description": "High-performance gaming smartphone.",
+            "image": "/ItemImages/RealmeGt5pro.jfif"
+          },
+          {
+            "id": 9,
+            "name": "Oppo Reno 11 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "oppo",
+            "rating": 3.3,
+            "price": 499,
+            "discount": "",
+            "tags": [
+              "oppo",
+              "camera",
+              "stylish"
+            ],
+            "description": "Stylish camera-focused smartphone.",
+            "image": "/ItemImages/OppoReno11pro.jfif"
+          },
+          {
+            "id": 10,
+            "name": "Vivo V30 Pro",
+            "subCategory": "Mobile",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 3.4,
+            "price": 520,
+            "discount": "",
+            "tags": [
+              "vivo",
+              "portrait",
+              "camera"
+            ],
+            "description": "Best portrait photography smartphone.",
+            "image": "/ItemImages/VivoV30pro.jfif"
+          },
+          {
+            "id": 11,
+            "name": "MacBook Pro M3",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "apple",
+            "rating": 4.9,
+            "price": 2200,
+            "discount": "",
+            "tags": [
+              "apple",
+              "m3",
+              "pro"
+            ],
+            "description": "High-performance Apple laptop for professionals.",
+            "image": "/ItemImages/MacBookProM3.jpg"
+          },
+          {
+            "id": 12,
+            "name": "Dell XPS 15",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "dell",
+            "rating": 5.0,
+            "price": 1800,
+            "discount": "",
+            "tags": [
+              "dell",
+              "windows",
+              "premium"
+            ],
+            "description": "Ultra-thin and powerful productivity laptop.",
+            "image": "/ItemImages/DellXPS15.jfif"
+          },
+          {
+            "id": 13,
+            "name": "HP Spectre x360",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "hp",
+            "rating": 6,
+            "price": 1600,
+            "discount": "",
+            "tags": [
+              "hp",
+              "2-in-1",
+              "touchscreen"
+            ],
+            "description": "Convertible laptop with premium design.",
+            "image": "/ItemImages/HPSpectrex360.jfif"
+          },
+          {
+            "id": 14,
+            "name": "Lenovo ThinkPad X1 Carbon",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "lenovo",
+            "rating": 2,
+            "price": 1700,
+            "discount": "",
+            "tags": [
+              "lenovo",
+              "business",
+              "lightweight"
+            ],
+            "description": "Best business ultrabook for professionals.",
+            "image": "/ItemImages/LenovoThinkPadX1Carbon.jfif"
+          },
+          {
+            "id": 15,
+            "name": "Asus ROG Zephyrus G14",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "asus",
+            "rating": 5.5,
+            "price": 1900,
+            "discount": "",
+            "tags": [
+              "asus",
+              "gaming",
+              "performance"
+            ],
+            "description": "High-performance gaming laptop.",
+            "image": "/ItemImages/AsusROGZephyrusG14.jfif"
+          },
+          {
+            "id": 16,
+            "name": "Acer Predator Helios 300",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "acer",
+            "rating": 4.6,
+            "price": 1500,
+            "discount": "",
+            "tags": [
+              "acer",
+              "gaming",
+              "gpu"
+            ],
+            "description": "Powerful gaming laptop with strong graphics.",
+            "image": "/ItemImages/AcerPredatorHelios300.jfif"
+          },
+          {
+            "id": 17,
+            "name": "Microsoft Surface Laptop 5",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "microsoft",
+            "rating": 3.5,
+            "price": 1400,
+            "discount": "",
+            "tags": [
+              "microsoft",
+              "surface",
+              "portable"
+            ],
+            "description": "Slim and elegant productivity laptop.",
+            "image": "/ItemImages/MicrosoftSurfaceLaptop5.png"
+          },
+          {
+            "id": 18,
+            "name": "MSI Stealth 14 Studio",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "msi",
+            "rating": 5.5,
+            "price": 2000,
+            "discount": "",
+            "tags": [
+              "msi",
+              "gaming",
+              "creator"
+            ],
+            "description": "Perfect for gaming and content creation.",
+            "image": "/ItemImages/MSIStealth14Studio.jfif"
+          },
+          {
+            "id": 19,
+            "name": "Samsung Galaxy Book 3 Pro",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.5,
+            "price": 1300,
+            "discount": "",
+            "tags": [
+              "samsung",
+              "ultrabook",
+              "slim"
+            ],
+            "description": "Lightweight and powerful everyday laptop.",
+            "image": "/ItemImages/SamsungGalaxyBook 3Pro.jfif"
+          },
+          {
+            "id": 20,
+            "name": "LG Gram 17",
+            "subCategory": "Laptop",
+            "gender": "unisex",
+            "brand": "lg",
+            "rating": 3.5,
+            "price": 1500,
+            "discount": "",
+            "tags": [
+              "lg",
+              "ultralight",
+              "battery"
+            ],
+            "description": "Ultra-light laptop with large display.",
+            "image": "/ItemImages/LGGram17.jfif"
+          },
+          {
+            "id": 21,
+            "name": " Apple AirPods Max ",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "apple",
+            "rating": 4.9,
+            "price": 399,
+            "discount": "",
+            "tags": [
+              "apple",
+              "noise canceling",
+              "wireless",
+              "Accessories"
+            ],
+            "description": "Industry-leading noise cancellation headphones.",
+            "image": "/ItemImages/AppleAirPodsMax.png "
+          },
+          {
+            "id": 22,
+            "name": "Apple AirPods Pro 2",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "apple",
+            "rating": 4.8,
+            "price": 249,
+            "discount": "",
+            "tags": [
+              "apple",
+              "airpods",
+              "wireless",
+              "Accessories"
+            ],
+            "description": "Premium wireless earbuds with spatial audio.",
+            "image": "/ItemImages/AppleAirPodsPro2.jfif"
+          },
+          {
+            "id": 23,
+            "name": "Bose QuietComfort Ultra",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "bose",
+            "rating": 4.8,
+            "price": 429,
+            "discount": "",
+            "tags": [
+              "bose",
+              "noise canceling",
+              "premium",
+              "Accessories"
+            ],
+            "description": "Best comfort and noise cancellation headphones.",
+            "image": "/ItemImages/BoseQuietComfortUltra.jfif"
+          },
+          {
+            "id": 24,
+            "name": "Samsung Galaxy Buds 2 Pro",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.7,
+            "price": 199,
+            "discount": "",
+            "tags": [
+              "samsung",
+              "buds",
+              "wireless",
+              "Accessories"
+            ],
+            "description": "High-quality wireless earbuds with ANC.",
+            "image": "/ItemImages/SamsungGalaxyBuds2Pro.jfif"
+          },
+          {
+            "id": 25,
+            "name": "JBL Tune 770NC",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "jbl",
+            "rating": 4.6,
+            "price": 149,
+            "discount": "",
+            "tags": [
+              "jbl",
+              "bass",
+              "noise canceling",
+              "Accessories"
+            ],
+            "description": "Powerful bass with active noise cancellation.",
+            "image": "/ItemImages/JBLTune770NC.jfif"
+          },
+          {
+            "id": 26,
+            "name": "Sennheiser Momentum 4",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "sennheiser",
+            "rating": 4.8,
+            "price": 379,
+            "discount": "",
+            "tags": [
+              "sennheiser",
+              "premium",
+              "wireless",
+              "Accessories"
+            ],
+            "description": "Studio-quality sound with long battery life.",
+            "image": "/ItemImages/SennheiserMomentum4.jfif"
+          },
+          {
+            "id": 27,
+            "name": "Beats Studio Pro",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "beats",
+            "rating": 4.7,
+            "price": 349,
+            "discount": "",
+            "tags": [
+              "beats",
+              "bass",
+              "apple",
+              "Accessories"
+            ],
+            "description": "Strong bass and premium design headphones.",
+            "image": "/ItemImages/BeatsStudioPro.jfif"
+          },
+          {
+            "id": 28,
+            "name": "Anker Soundcore Life Q30",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "anker",
+            "rating": 4.5,
+            "price": 79,
+            "discount": "",
+            "tags": [
+              "anker",
+              "budget",
+              "noise canceling",
+              "Accessories"
+            ],
+            "description": "Affordable ANC headphones with great sound.",
+            "image": "/ItemImages/AnkerSoundcoreLifeQ30.jfif"
+          },
+          {
+            "id": 29,
+            "name": "Sony WF-1000XM5 Earbuds",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "sony",
+            "rating": 4.9,
+            "price": 299,
+            "discount": "",
+            "tags": [
+              "sony",
+              "earbuds",
+              "premium",
+              "Accessories"
+            ],
+            "description": "Top-tier wireless noise cancelling earbuds.",
+            "image": "/ItemImages/SonyWF1000XM5Earbuds.jfif"
+          },
+          {
+            "id": 30,
+            "name": "Nothing Ear (2)",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "nothing",
+            "rating": 4.6,
+            "price": 149,
+            "discount": "",
+            "tags": [
+              "nothing",
+              "earbuds",
+              "stylish",
+              "Accessories"
+            ],
+            "description": "Transparent design with balanced sound.",
+            "image": "/ItemImages/NothingEar(2).jfif"
+          }
+        ]
+      },
+      {
+        "category": "Women Fashion",
+        "categoryimage": "/MainSectionBanner/Womenfashion.jfif",
+        "items": [
+          {
+            "id": 31,
+            "name": "Apple Watch Series 9 (Women)",
+            "subCategory": "Watches",
+            "gender": "women",
+            "brand": "apple",
+            "rating": 4.8,
+            "price": 450,
+            "discount": "",
+            "tags": [
+              "smartwatch",
+              "apple",
+              "fitness"
+            ],
+            "description": "Elegant health tracking smartwatch.",
+            "image": "/ItemImages/AppleWatchSeries9(Women).jfif"
+          },
+          {
+            "id": 32,
+            "name": "Michael Kors Rose Gold Watch",
+            "subCategory": "Watches",
+            "gender": "women",
+            "brand": "michael kors",
+            "rating": 4.7,
+            "price": 220,
+            "discount": "",
+            "tags": [
+              "luxury",
+              "fashion",
+              "watch"
+            ],
+            "description": "Stylish rose gold designer watch.",
+            "image": "/ItemImages/MichaelKorsRoseGoldWatch.jfif"
+          },
+          {
+            "id": 33,
+            "name": "Fossil Gen 6 Women Watch",
+            "subCategory": "Watches",
+            "gender": "women",
+            "brand": "fossil",
+            "rating": 4.6,
+            "price": 280,
+            "discount": "",
+            "tags": [
+              "smartwatch",
+              "fossil",
+              "wearos"
+            ],
+            "description": "Smartwatch with elegant design.",
+            "image": "/ItemImages/FossilGen6WomenWatch.jfif"
+          },
+          {
+            "id": 34,
+            "name": "Daniel Wellington Petite",
+            "subCategory": "Watches",
+            "gender": "women",
+            "brand": "daniel wellington",
+            "rating": 4.7,
+            "price": 180,
+            "discount": "",
+            "tags": [
+              "minimal",
+              "fashion",
+              "watch"
+            ],
+            "description": "Minimalist stylish watch.",
+            "image": "/ItemImages/DanielWellingtonPetite.jfif"
+          },
+          {
+            "id": 35,
+            "name": "Casio Sheen Elegant Watch",
+            "subCategory": "Watches",
+            "gender": "women",
+            "brand": "casio",
+            "rating": 4.5,
+            "price": 150,
+            "discount": "",
+            "tags": [
+              "casio",
+              "classic",
+              "watch"
+            ],
+            "description": "Elegant analog watch for women.",
+            "image": "/ItemImages/CasioSheenElegantWatch.jfif"
+          },
+          {
+            "id": 36,
+            "name": "Nike Air Force 1 Women",
+            "subCategory": "Shoes",
+            "gender": "women",
+            "brand": "nike",
+            "rating": 4.8,
+            "price": 130,
+            "discount": "",
+            "tags": [
+              "nike",
+              "sneakers",
+              "fashion"
+            ],
+            "description": "Classic stylish sneakers.",
+            "image": "/ItemImages/NikeAirForce1Women.jfif"
+          },
+          {
+            "id": 37,
+            "name": "Adidas Stan Smith Women",
+            "subCategory": "Shoes",
+            "gender": "women",
+            "brand": "adidas",
+            "rating": 4.7,
+            "price": 110,
+            "discount": "",
+            "tags": [
+              "adidas",
+              "classic",
+              "shoes"
+            ],
+            "description": "Clean minimal sneaker design.",
+            "image": "/ItemImages/AdidasStanSmithWomen.jfif"
+          },
+          {
+            "id": 38,
+            "name": "Puma Cali Star Women",
+            "subCategory": "Shoes",
+            "gender": "women",
+            "brand": "puma",
+            "rating": 4.6,
+            "price": 120,
+            "discount": "",
+            "tags": [
+              "puma",
+              "fashion",
+              "sneakers"
+            ],
+            "description": "Trendy casual sneakers.",
+            "image": "/ItemImages/PumaCaliStarWomen.jfif"
+          },
+          {
+            "id": 39,
+            "name": "Converse Chuck Taylor Women",
+            "subCategory": "Shoes",
+            "gender": "women",
+            "brand": "converse",
+            "rating": 4.7,
+            "price": 90,
+            "discount": "",
+            "tags": [
+              "converse",
+              "classic",
+              "canvas"
+            ],
+            "description": "Timeless canvas sneakers.",
+            "image": "/ItemImages/ConverseChuckTaylorWomen.jfif"
+          },
+          {
+            "id": 40,
+            "name": "Vans Old Skool Women",
+            "subCategory": "Shoes",
+            "gender": "women",
+            "brand": "vans",
+            "rating": 4.6,
+            "price": 85,
+            "discount": "",
+            "tags": [
+              "vans",
+              "skate",
+              "street"
+            ],
+            "description": "Stylish streetwear sneakers.",
+            "image": "/ItemImages/VansOldSkoolWomen.jfif"
+          },
+          {
+            "id": 41,
+            "name": "Gold Necklace Set",
+            "subCategory": "Jewelry",
+            "gender": "women",
+            "brand": "nayab jewelers",
+            "rating": 4.9,
+            "price": 500,
+            "discount": "",
+            "tags": [
+              "gold",
+              "necklace",
+              "Accessories",
+              "wedding"
+            ],
+            "description": "Elegant gold necklace set.",
+            "image": "/ItemImages/GoldNecklaceSet.jfif"
+          },
+          {
+            "id": 42,
+            "name": "Diamond Stud Earrings",
+            "subCategory": "Jewelry",
+            "gender": "women",
+            "brand": "nayab jewelers",
+            "rating": 4.9,
+            "price": 600,
+            "discount": "",
+            "tags": [
+              "diamond",
+              "earrings",
+              "luxury",
+              "Accessories"
+            ],
+            "description": "Premium diamond studs.",
+            "image": "/ItemImages/DiamondStudEarrings.jfif"
+          },
+          {
+            "id": 43,
+            "name": "Silver Charm Bracelet",
+            "subCategory": "Jewelry",
+            "gender": "women",
+            "brand": "nayab jewelers",
+            "rating": 4.6,
+            "price": 120,
+            "discount": "",
+            "tags": [
+              "silver",
+              "bracelet",
+              "fashion",
+              "Accessories"
+            ],
+            "description": "Stylish charm bracelet.",
+            "image": "/ItemImages/SilverCharmBracelet.jfif"
+          },
+          {
+            "id": 44,
+            "name": "Pearl Necklace Set",
+            "subCategory": "Jewelry",
+            "gender": "women",
+            "brand": "nayab jewelers",
+            "rating": 4.7,
+            "price": 180,
+            "discount": "",
+            "tags": [
+              "pearl",
+              "elegant",
+              "necklace",
+              "Accessories"
+            ],
+            "description": "Classic pearl jewelry set.",
+            "image": "/ItemImages/PearlNecklaceSet.jfif"
+          },
+          {
+            "id": 45,
+            "name": "Rose Gold Ring Set",
+            "subCategory": "Jewelry",
+            "gender": "women",
+            "brand": "nayab jewelers",
+            "rating": 4.6,
+            "price": 150,
+            "discount": "",
+            "tags": [
+              "ring",
+              "rose gold",
+              "fashion",
+              "Accessories"
+            ],
+            "description": "Trendy ring set.",
+            "image": "/ItemImages/RoseGoldRingSet.jfif"
+          },
+          {
+            "id": 46,
+            "name": "MAC Matte Lipstick Ruby Woo",
+            "subCategory": "Makeup",
+            "gender": "women",
+            "brand": "mAC matte",
+            "rating": 4.9,
+            "price": 25,
+            "discount": "",
+            "tags": [
+              "lipstick",
+              "mac",
+              "matte"
+            ],
+            "description": "Iconic red matte lipstick.",
+            "image": "/ItemImages/MACMatteLipstickRubyWoo.jfif"
+          },
+          {
+            "id": 47,
+            "name": "Maybelline Fit Me Foundation",
+            "subCategory": "Makeup",
+            "gender": "women",
+            "brand": "maybelline",
+            "rating": 4.7,
+            "price": 18,
+            "discount": "",
+            "tags": [
+              "foundation",
+              "face",
+              "maybelline"
+            ],
+            "description": "Natural finish foundation.",
+            "image": "/ItemImages/MaybellineFitMeFoundation.jfif"
+          },
+          {
+            "id": 48,
+            "name": "Huda Beauty Eyeshadow Palette",
+            "subCategory": "Makeup",
+            "gender": "women",
+            "brand": "huda beauty",
+            "rating": 4.9,
+            "price": 60,
+            "discount": "",
+            "tags": [
+              "eyeshadow",
+              "huda",
+              "palette"
+            ],
+            "description": "Highly pigmented palette.",
+            "image": "/ItemImages/HudaBeautyEyeshadowPalette.jfif"
+          },
+          {
+            "id": 49,
+            "name": "L'Oreal Mascara Volume",
+            "subCategory": "Makeup",
+            "gender": "women",
+            "brand": "l'oreal",
+            "rating": 4.6,
+            "price": 15,
+            "discount": "",
+            "tags": [
+              "mascara",
+              "eyes",
+              "loreal"
+            ],
+            "description": "Volumizing mascara.",
+            "image": "/ItemImages/L'OrealMascaraVolume.jfif"
+          },
+          {
+            "id": 50,
+            "name": "Fenty Beauty Concealer",
+            "subCategory": "Makeup",
+            "gender": "women",
+            "brand": "fenty",
+            "rating": 4.8,
+            "price": 30,
+            "discount": "",
+            "tags": [
+              "concealer",
+              "fenty",
+              "face"
+            ],
+            "description": "Smooth coverage concealer.",
+            "image": "/ItemImages/FentyBeautyConcealer.jfif"
+          }
+        ]
+      },
+      {
+        "category": "Men Fashion",
+        "categoryimage": "/MainSectionBanner/Menfashion.avif",
+        "items": [
+          {
+            "id": 51,
+            "name": "Rolex Submariner",
+            "subCategory": "Watches",
+            "gender": "men",
+            "brand": "rolex",
+            "rating": 4.9,
+            "price": 12000,
+            "discount": "",
+            "tags": [
+              "rolex",
+              "luxury",
+              "watch"
+            ],
+            "description": "Premium luxury diving watch.",
+            "image": "/ItemImages/RolexSubmariner.jfif"
+          },
+          {
+            "id": 52,
+            "name": "Casio G-Shock GA-2100",
+            "subCategory": "Watches",
+            "gender": "men",
+            "brand": "casio",
+            "rating": 4.8,
+            "price": 120,
+            "discount": "",
+            "tags": [
+              "casio",
+              "durable",
+              "sports"
+            ],
+            "description": "Rugged and shock-resistant watch.",
+            "image": "/ItemImages/CasioG-ShockGA-2100.jfif"
+          },
+          {
+            "id": 53,
+            "name": "Seiko Automatic Diver",
+            "subCategory": "Watches",
+            "gender": "men",
+            "brand": "seiko",
+            "rating": 4.7,
+            "price": 350,
+            "discount": "",
+            "tags": [
+              "seiko",
+              "automatic",
+              "diver"
+            ],
+            "description": "Reliable automatic diving watch.",
+            "image": "/ItemImages/SeikoAutomaticDiver.jfif"
+          },
+          {
+            "id": 54,
+            "name": "Fossil Chronograph Watch",
+            "subCategory": "Watches",
+            "gender": "men",
+            "brand": "fossil",
+            "rating": 4.6,
+            "price": 180,
+            "discount": "",
+            "tags": [
+              "fossil",
+              "chronograph",
+              "fashion"
+            ],
+            "description": "Stylish chronograph watch.",
+            "image": "/ItemImages/FossilChronographWatch.jfif"
+          },
+          {
+            "id": 55,
+            "name": "Tissot PRX Automatic",
+            "subCategory": "Watches",
+            "gender": "men",
+            "brand": "tissot",
+            "rating": 4.8,
+            "price": 650,
+            "discount": "",
+            "tags": [
+              "tissot",
+              "luxury",
+              "automatic"
+            ],
+            "description": "Elegant Swiss automatic watch.",
+            "image": "/ItemImages/TissotPRXAutomatic.jfif"
+          },
+          {
+            "id": 56,
+            "name": "Nike Air Jordan 1",
+            "subCategory": "Shoes",
+            "gender": "men",
+            "brand": "nike",
+            "rating": 4.9,
+            "price": 200,
+            "discount": "",
+            "tags": [
+              "nike",
+              "jordan",
+              "basketball"
+            ],
+            "description": "Iconic basketball sneakers.",
+            "image": "/ItemImages/NikeAirJordan1.jfif"
+          },
+          {
+            "id": 57,
+            "name": "Adidas Ultraboost 22",
+            "subCategory": "Shoes",
+            "gender": "men",
+            "brand": "adidas",
+            "rating": 4.8,
+            "price": 180,
+            "discount": "",
+            "tags": [
+              "adidas",
+              "running",
+              "boost"
+            ],
+            "description": "High-performance running shoes.",
+            "image": "/ItemImages/AdidasUltraboost22.jfif"
+          },
+          {
+            "id": 58,
+            "name": "Puma RS-X Sneakers",
+            "subCategory": "Shoes",
+            "gender": "men",
+            "brand": "puma",
+            "rating": 4.6,
+            "price": 140,
+            "discount": "",
+            "tags": [
+              "puma",
+              "streetwear",
+              "fashion"
+            ],
+            "description": "Modern chunky sneakers.",
+            "image": "/ItemImages/PumaRS-XSneakers.jfif"
+          },
+          {
+            "id": 59,
+            "name": "Nike Air Force 1 Men",
+            "subCategory": "Shoes",
+            "gender": "men",
+            "brand": "nike",
+            "rating": 4.8,
+            "price": 130,
+            "discount": "",
+            "tags": [
+              "nike",
+              "classic",
+              "casual"
+            ],
+            "description": "Timeless street sneakers.",
+            "image": "/ItemImages/NikeAirForce1Men.jfif"
+          },
+          {
+            "id": 60,
+            "name": "Converse Chuck Taylor High",
+            "subCategory": "Shoes",
+            "gender": "men",
+            "brand": "converse",
+            "rating": 4.7,
+            "price": 90,
+            "discount": "",
+            "tags": [
+              "converse",
+              "canvas",
+              "classic"
+            ],
+            "description": "Iconic high-top sneakers.",
+            "image": "/ItemImages/ConverseChuckTaylorHigh.jfif"
+          },
+          {
+            "id": 61,
+            "name": "Leather Men Bracelet",
+            "subCategory": "Bracelets",
+            "gender": "men",
+            "brand": "cartier",
+            "rating": 4.5,
+            "price": 35,
+            "discount": "",
+            "tags": [
+              "leather",
+              "fashion",
+              "mens",
+              "Accessories"
+            ],
+            "description": "Stylish leather bracelet.",
+            "image": "/ItemImages/LeatherMenBracelet.jfif"
+          },
+          {
+            "id": 62,
+            "name": "Silver Chain Bracelet",
+            "subCategory": "Bracelets",
+            "gender": "men",
+            "brand": "cartier",
+            "rating": 4.7,
+            "price": 80,
+            "discount": "",
+            "tags": [
+              "silver",
+              "chain",
+              "Accessories",
+              "elegant"
+            ],
+            "description": "Classic silver chain bracelet.",
+            "image": "/ItemImages/SilverChainBracelet.jfif"
+          },
+          {
+            "id": 63,
+            "name": "Beaded Stone Bracelet",
+            "subCategory": "Bracelets",
+            "gender": "men",
+            "brand": "cartier",
+            "rating": 4.6,
+            "price": 25,
+            "discount": "",
+            "tags": [
+              "beads",
+              "stones",
+              "fashion",
+              "Accessories"
+            ],
+            "description": "Natural stone bead bracelet.",
+            "image": "/ItemImages/BeadedStoneBracelet.jfif"
+          },
+          {
+            "id": 64,
+            "name": "Magnetic Health Bracelet",
+            "subCategory": "Bracelets",
+            "gender": "men",
+            "brand": "cartier",
+            "rating": 4.4,
+            "price": 20,
+            "discount": "",
+            "tags": [
+              "health",
+              "magnetic",
+              "wellness",
+              "Accessories"
+            ],
+            "description": "Magnetic therapy bracelet.",
+            "image": "/ItemImages/MagneticHealthBracelet.jfif"
+          },
+          {
+            "id": 65,
+            "name": "Titanium Minimal Bracelet",
+            "subCategory": "Bracelets",
+            "gender": "men",
+            "brand": "cartier",
+            "rating": 4.6,
+            "price": 60,
+            "discount": "",
+            "tags": [
+              "titanium",
+              "minimal",
+              "modern",
+              "Accessories"
+            ],
+            "description": "Strong and stylish titanium bracelet.",
+            "image": "/ItemImages/TitaniumMinimalBracelet.jfif"
+          }
+        ]
+      },
+      {
+        "category": "Sports",
+        "categoryimage": "/MainSectionBanner/Sports.jpg",
+        "items": [
+          {
+            "id": 66,
+            "name": "Resistance Band Set",
+            "subCategory": "Fitness",
+            "gender": "women",
+            "brand": "rogue fitness",
+            "rating": 4.6,
+            "price": 25,
+            "discount": "",
+            "tags": [
+              "workout",
+              "home gym",
+              "fitness"
+            ],
+            "description": "Full-body resistance training bands.",
+            "image": "/ItemImages/ResistanceBandSet.jfif"
+          },
+          {
+            "id": 67,
+            "name": "Yoga Mat Premium Pro",
+            "subCategory": "Fitness",
+            "gender": "women",
+            "brand": "rogue fitness",
+            "rating": 4.7,
+            "price": 30,
+            "discount": "",
+            "tags": [
+              "yoga",
+              "fitness",
+              "non-slip"
+            ],
+            "description": "Extra thick non-slip yoga mat for comfort.",
+            "image": "/ItemImages/YogaMatPremiumPro.jfif"
+          },
+          {
+            "id": 68,
+            "name": "Adjustable Dumbbell Set",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.8,
+            "price": 120,
+            "discount": "",
+            "tags": [
+              "gym",
+              "strength",
+              "home workout"
+            ],
+            "description": "Space-saving adjustable dumbbells for home gym.",
+            "image": "/ItemImages/AdjustableDumbbellSet.jfif"
+          },
+          {
+            "id": 69,
+            "name": "Skipping Rope Speed Pro",
+            "subCategory": "Fitness",
+            "gender": "unisex",
+            "brand": "rogue fitness",
+            "rating": 4.5,
+            "price": 15,
+            "discount": "",
+            "tags": [
+              "cardio",
+              "fitness",
+              "jump rope"
+            ],
+            "description": "High-speed rope for cardio training.",
+            "image": "/ItemImages/SkippingRopeSpeedPro.jfif"
+          },
+          {
+            "id": 70,
+            "name": "Kettlebell Cast Iron 10kg",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.7,
+            "price": 40,
+            "discount": "",
+            "tags": [
+              "strength",
+              "weight training",
+              "gym"
+            ],
+            "description": "Durable cast iron kettlebell for strength workouts.",
+            "image": "/ItemImages/KettlebellCastIron10kg.jfif"
+          },
+          {
+            "id": 71,
+            "name": "Fitness Push Up Bars",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.5,
+            "price": 18,
+            "discount": "",
+            "tags": [
+              "pushup",
+              "upper body",
+              "workout"
+            ],
+            "description": "Ergonomic push-up bars for chest training.",
+            "image": "/ItemImages/FitnessPushUpBars.jfif"
+          },
+          {
+            "id": 72,
+            "name": "Yoga Block Set Foam",
+            "subCategory": "Fitness",
+            "gender": "women",
+            "brand": "rogue fitness",
+            "rating": 4.6,
+            "price": 12,
+            "discount": "",
+            "tags": [
+              "yoga",
+              "stretching",
+              "support"
+            ],
+            "description": "Lightweight foam yoga blocks for support.",
+            "image": "/ItemImages/YogaBlock SetFoam.jfif"
+          },
+          {
+            "id": 73,
+            "name": "Medicine Ball 5kg",
+            "subCategory": "Fitness",
+            "gender": "unisex",
+            "brand": "rogue fitness",
+            "rating": 4.6,
+            "price": 35,
+            "discount": "",
+            "tags": [
+              "core",
+              "strength",
+              "training"
+            ],
+            "description": "Weighted medicine ball for functional exercises.",
+            "image": "/ItemImages/MedicineBall5kg.jfif"
+          },
+          {
+            "id": 74,
+            "name": "Ab Roller Wheel Pro",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.4,
+            "price": 20,
+            "discount": "",
+            "tags": [
+              "abs",
+              "core",
+              "home workout"
+            ],
+            "description": "Effective ab roller for core strengthening.",
+            "image": "/ItemImages/AbRollerWheelPro.jfif"
+          },
+          {
+            "id": 75,
+            "name": "Home Gym Pull Up Bar",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.7,
+            "price": 55,
+            "discount": "",
+            "tags": [
+              "pullup",
+              "strength",
+              "home gym"
+            ],
+            "description": "Door-mounted pull-up bar for home workouts.",
+            "image": "/ItemImages/HomeGymPullUpBar.jfif"
+          },
+          {
+            "id": 76,
+            "name": "Treadmill Foldable Runner",
+            "subCategory": "Fitness",
+            "gender": "unisex",
+            "brand": "rogue fitness",
+            "rating": 4.8,
+            "price": 450,
+            "discount": "",
+            "tags": [
+              "cardio",
+              "running",
+              "home gym"
+            ],
+            "description": "Foldable treadmill for indoor running workouts.",
+            "image": "/ItemImages/TreadmillFoldableRunner.jfif"
+          },
+          {
+            "id": 77,
+            "name": "Workout Bench Adjustable",
+            "subCategory": "Fitness",
+            "gender": "men",
+            "brand": "rogue fitness",
+            "rating": 4.6,
+            "price": 180,
+            "discount": "",
+            "tags": [
+              "bench",
+              "strength",
+              "gym"
+            ],
+            "description": "Adjustable workout bench for full-body training.",
+            "image": "/ItemImages/WorkoutBenchAdjustable.jfif"
+          },
+          {
+            "id": 78,
+            "name": "Pilates Ring Trainer",
+            "subCategory": "Fitness",
+            "gender": "women",
+            "brand": "rogue fitness",
+            "rating": 4.5,
+            "price": 22,
+            "discount": "",
+            "tags": [
+              "pilates",
+              "core",
+              "fitness"
+            ],
+            "description": "Pilates resistance ring for toning muscles.",
+            "image": "/ItemImages/PilatesRingTrainer.jfif"
+          },
+          {
+            "id": 79,
+            "name": "Massage Foam Roller",
+            "subCategory": "Fitness",
+            "gender": "unisex",
+            "brand": "rogue fitness",
+            "rating": 4.7,
+            "price": 28,
+            "discount": "",
+            "tags": [
+              "recovery",
+              "massage",
+              "stretching"
+            ],
+            "description": "Foam roller for muscle recovery and relaxation.",
+            "image": "/ItemImages/MassageFoamRoller.jfif"
+          },
+          {
+            "id": 80,
+            "name": "Smart Fitness Tracker Band",
+            "subCategory": "Fitness",
+            "gender": "unisex",
+            "brand": "rogue fitness",
+            "rating": 4.6,
+            "price": 65,
+            "discount": "",
+            "tags": [
+              "fitness tracker",
+              "smart band",
+              "health"
+            ],
+            "description": "Track steps, heart rate, and workouts easily.",
+            "image": "/ItemImages/SmartFitnessTrackerBand.jfif"
+          }
+        ]
+      },
+      {
+        "category": "Home and Garden",
+        "categoryimage": "/MainSectionBanner/Home&Garden.jpg",
+        "items": [
+          {
+            "id": 81,
+            "name": "Dyson V11 Vacuum Cleaner",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "dyson",
+            "rating": 4.8,
+            "price": 599,
+            "discount": "",
+            "tags": [
+              "vacuum",
+              "cleaning",
+              "home"
+            ],
+            "description": "Powerful cordless vacuum cleaner for home cleaning.",
+            "image": "/ItemImages/DysonV11VacuumCleaner.jfif"
+          },
+          {
+            "id": 82,
+            "name": "Philips Air Fryer XXL",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.7,
+            "price": 250,
+            "discount": "",
+            "tags": [
+              "kitchen",
+              "air fryer",
+              "cooking"
+            ],
+            "description": "Healthy oil-free cooking appliance.",
+            "image": "/ItemImages/PhilipsAirFryerXXL.jfif"
+          },
+          {
+            "id": 83,
+            "name": "Samsung Smart Refrigerator",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.9,
+            "price": 1800,
+            "discount": "",
+            "tags": [
+              "fridge",
+              "kitchen",
+              "smart"
+            ],
+            "description": "Large smart refrigerator with modern features.",
+            "image": "/ItemImages/SamsungSmartRefrigerator.jfif"
+          },
+          {
+            "id": 84,
+            "name": "LG Washing Machine",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "lg",
+            "rating": 4.6,
+            "price": 900,
+            "discount": "",
+            "tags": [
+              "laundry",
+              "washing",
+              "home"
+            ],
+            "description": "Efficient front-load washing machine.",
+            "image": "/ItemImages/LGWashingMachine.jfif"
+          },
+          {
+            "id": 85,
+            "name": "KitchenAid Stand Mixer",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.8,
+            "price": 400,
+            "discount": "",
+            "tags": [
+              "kitchen",
+              "mixer",
+              "baking"
+            ],
+            "description": "Professional stand mixer for baking.",
+            "image": "/ItemImages/KitchenAidStandMixer.jfif"
+          },
+          {
+            "id": 86,
+            "name": "Robot Vacuum Cleaner",
+            "subCategory": "Home",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.5,
+            "price": 350,
+            "discount": "",
+            "tags": [
+              "robot",
+              "cleaning",
+              "smart home"
+            ],
+            "description": "Automatic smart vacuum cleaner.",
+            "image": "/ItemImages/RobotVacuumCleaner.jfif"
+          },
+          {
+            "id": 87,
+            "name": "Garden Tool Kit",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.6,
+            "price": 95,
+            "discount": "",
+            "tags": [
+              "garden",
+              "tools",
+              "plants"
+            ],
+            "description": "Complete gardening tools set.",
+            "image": "/ItemImages/GardenToolKit.jfif"
+          },
+          {
+            "id": 88,
+            "name": "Lawn Mower Pro",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.7,
+            "price": 450,
+            "discount": "",
+            "tags": [
+              "lawn",
+              "garden",
+              "grass"
+            ],
+            "description": "Powerful lawn mower for gardens.",
+            "image": "/ItemImages/LawnMowerPro.jfif"
+          },
+          {
+            "id": 89,
+            "name": "Outdoor Patio Furniture Set",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "interio",
+            "rating": 4.8,
+            "price": 850,
+            "discount": "",
+            "tags": [
+              "patio",
+              "furniture",
+              "outdoor"
+            ],
+            "description": "Luxury furniture set for gardens.",
+            "image": "/ItemImages/OutdoorPatioFurnitureSet.jfif"
+          },
+          {
+            "id": 90,
+            "name": "Plant Pots Set",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "plant.pk",
+            "rating": 4.5,
+            "price": 60,
+            "discount": "",
+            "tags": [
+              "plants",
+              "pots",
+              "garden"
+            ],
+            "description": "Decorative plant pots set.",
+            "image": "/ItemImages/PlantPotsSet.jfif"
+          },
+          {
+            "id": 91,
+            "name": "Water Hose Reel",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.4,
+            "price": 120,
+            "discount": "",
+            "tags": [
+              "watering",
+              "garden",
+              "hose"
+            ],
+            "description": "Easy-to-use garden watering hose.",
+            "image": "/ItemImages/WaterHoseReel.jfif"
+          },
+          {
+            "id": 92,
+            "name": "BBQ Grill Set",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.7,
+            "price": 300,
+            "discount": "",
+            "tags": [
+              "bbq",
+              "grill",
+              "outdoor"
+            ],
+            "description": "Perfect grill for outdoor parties.",
+            "image": "/ItemImages/BBQGrillSet.jfif"
+          },
+          {
+            "id": 93,
+            "name": "Garden Swing Chair",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "interio",
+            "rating": 4.6,
+            "price": 280,
+            "discount": "",
+            "tags": [
+              "chair",
+              "garden",
+              "relax"
+            ],
+            "description": "Comfortable swing chair for gardens.",
+            "image": "/ItemImages/GardenSwingChair.jfif"
+          },
+          {
+            "id": 94,
+            "name": "Solar Garden Lights",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "plant.pk",
+            "rating": 4.5,
+            "price": 75,
+            "discount": "",
+            "tags": [
+              "solar",
+              "lights",
+              "garden"
+            ],
+            "description": "Energy-saving decorative garden lights.",
+            "image": "/ItemImages/SolarGardenLights.jfif"
+          },
+          {
+            "id": 95,
+            "name": "Portable Fire Pit",
+            "subCategory": "Garden",
+            "gender": "unisex",
+            "brand": "philips",
+            "rating": 4.6,
+            "price": 220,
+            "discount": "",
+            "tags": [
+              "fire pit",
+              "outdoor",
+              "garden"
+            ],
+            "description": "Portable fire pit for outdoor gatherings.",
+            "image": "/ItemImages/PortableFirePit.jfif"
+          }
+        ]
+      },
+      {
+        "category": "Mobile Accessories",
+        "categoryimage": "/MainSectionBanner/Mobileacessories.jpg",
+        "items": [
+          {
+            "id": 96,
+            "name": "Wireless Bluetooth Earbuds Pro",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.7,
+            "price": 120,
+            "discount": "15",
+            "tags": [
+              "earbuds",
+              "bluetooth",
+              "wireless"
+            ],
+            "description": "High-quality wireless earbuds with deep bass and noise reduction.",
+            "image": "/ItemImages/WirelessBluetoothEarbudsPro.jfif"
+          },
+          {
+            "id": 97,
+            "name": "Fast Charging USB-C Cable",
+            "subCategory": "Cables",
+            "gender": "unisex",
+            "brand": "oppo",
+            "rating": 4.5,
+            "price": 10,
+            "discount": "10",
+            "tags": [
+              "cable",
+              "usb-c",
+              "fast-charge"
+            ],
+            "description": "Durable USB-C cable with fast charging support.",
+            "image": "/ItemImages/FastChargingUSB-CCable.jfif"
+          },
+          {
+            "id": 98,
+            "name": "20W Fast Charger Adapter",
+            "subCategory": "Chargers",
+            "gender": "unisex",
+            "brand": "oppo",
+            "rating": 4.6,
+            "price": 25,
+            "discount": "12",
+            "tags": [
+              "charger",
+              "fast",
+              "adapter"
+            ],
+            "description": "Compact 20W fast charger for smartphones.",
+            "image": "/ItemImages/20WFastChargerAdapter.jfif"
+          },
+          {
+            "id": 99,
+            "name": "Magnetic Phone Holder",
+            "subCategory": "Car Accessories",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.4,
+            "price": 18,
+            "discount": "20",
+            "tags": [
+              "holder",
+              "car",
+              "magnetic"
+            ],
+            "description": "Strong magnetic holder for dashboard use.",
+            "image": "/ItemImages/MagneticPhoneHolder.jfif"
+          },
+          {
+            "id": 100,
+            "name": "Tempered Glass Screen Protector",
+            "subCategory": "Protection",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.8,
+            "price": 8,
+            "discount": "25",
+            "tags": [
+              "screen",
+              "protector",
+              "glass"
+            ],
+            "description": "Scratch-resistant tempered glass for phone protection.",
+            "image": "/ItemImages/TemperedGlassScreenProtector.jfif"
+          },
+          {
+            "id": 101,
+            "name": "Wireless Charging Pad",
+            "subCategory": "Chargers",
+            "gender": "unisex",
+            "brand": "oneplus",
+            "rating": 4.6,
+            "price": 35,
+            "discount": "18",
+            "tags": [
+              "wireless",
+              "charging",
+              "pad"
+            ],
+            "description": "Fast wireless charging pad compatible with all Qi devices.",
+            "image": "/ItemImages/WirelessChargingPad.jfif"
+          },
+          {
+            "id": 102,
+            "name": "Phone Camera Lens Kit",
+            "subCategory": "Photography",
+            "gender": "unisex",
+            "brand": "oneplus",
+            "rating": 4.3,
+            "price": 22,
+            "discount": "15",
+            "tags": [
+              "camera",
+              "lens",
+              "photography"
+            ],
+            "description": "Wide, macro, and fisheye lens kit for mobile photography.",
+            "image": "/ItemImages/PhoneCameraLensKit.jfif"
+          },
+          {
+            "id": 103,
+            "name": "Power Bank 10000mAh",
+            "subCategory": "Power",
+            "gender": "unisex",
+            "brand": "oneplus",
+            "rating": 4.7,
+            "price": 40,
+            "discount": "10",
+            "tags": [
+              "powerbank",
+              "battery",
+              "portable"
+            ],
+            "description": "Slim 10000mAh power bank with fast charging support.",
+            "image": "/ItemImages/PowerBank10000mAh.jfif"
+          },
+          {
+            "id": 104,
+            "name": "Phone Ring Light",
+            "subCategory": "Photography",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 4.5,
+            "price": 15,
+            "discount": "30",
+            "tags": [
+              "light",
+              "ring",
+              "selfie"
+            ],
+            "description": "Clip-on ring light for better selfies and videos.",
+            "image": "/ItemImages/PhoneRingLight.png"
+          },
+          {
+            "id": 105,
+            "name": "Foldable Mobile Stand",
+            "subCategory": "Stands",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 4.6,
+            "price": 12,
+            "discount": "20",
+            "tags": [
+              "stand",
+              "foldable",
+              "desk"
+            ],
+            "description": "Adjustable foldable stand for phones and tablets.",
+            "image": "/ItemImages/FoldableMobileStand.jfif"
+          },
+          {
+            "id": 106,
+            "name": "Gaming Mobile Controller",
+            "subCategory": "Gaming",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.7,
+            "price": 55,
+            "discount": "18",
+            "tags": [
+              "gaming",
+              "controller",
+              "mobile"
+            ],
+            "description": "Ergonomic controller for mobile gaming experience.",
+            "image": "/ItemImages/GamingMobileController.jfif"
+          },
+          {
+            "id": 107,
+            "name": "Bluetooth Selfie Stick Tripod",
+            "subCategory": "Photography",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 4.4,
+            "price": 20,
+            "discount": "22",
+            "tags": [
+              "selfie",
+              "tripod",
+              "bluetooth"
+            ],
+            "description": "2-in-1 selfie stick and tripod with Bluetooth remote.",
+            "image": "/ItemImages/BluetoothSelfieStickTripod.jfif"
+          },
+          {
+            "id": 108,
+            "name": "Phone Cooling Fan",
+            "subCategory": "Gaming",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 4.3,
+            "price": 18,
+            "discount": "15",
+            "tags": [
+              "cooling",
+              "fan",
+              "gaming"
+            ],
+            "description": "Clip-on cooling fan for gaming smartphones.",
+            "image": "/ItemImages/PhoneCoolingFan.jfif"
+          },
+          {
+            "id": 109,
+            "name": "Stylus Pen for Touch Screens",
+            "subCategory": "Input",
+            "gender": "unisex",
+            "brand": "samsung",
+            "rating": 4.5,
+            "price": 14,
+            "discount": "10",
+            "tags": [
+              "stylus",
+              "pen",
+              "touch"
+            ],
+            "description": "Precision stylus pen for drawing and navigation.",
+            "image": "/ItemImages/StylusPenforTouchScreens.jfif"
+          },
+          {
+            "id": 110,
+            "name": "Magnetic Charging Cable",
+            "subCategory": "Cables",
+            "gender": "unisex",
+            "brand": "xiaomi",
+            "rating": 4.6,
+            "price": 16,
+            "discount": "25",
+            "tags": [
+              "magnetic",
+              "cable",
+              "charging"
+            ],
+            "description": "Magnetic connector cable for easy charging.",
+            "image": "/ItemImages/MagneticChargingCable.png"
+          },
+          {
+            "id": 111,
+            "name": "Waterproof Phone Pouch",
+            "subCategory": "Protection",
+            "gender": "unisex",
+            "brand": "vivo",
+            "rating": 4.4,
+            "price": 9,
+            "discount": "30",
+            "tags": [
+              "waterproof",
+              "pouch",
+              "protection"
+            ],
+            "description": "Waterproof pouch for beach and outdoor use.",
+            "image": "/ItemImages/WaterproofPhonePouch.jfif"
+          },
+          {
+            "id": 112,
+            "name": "Noise Cancelling Headphones",
+            "subCategory": "Headphones & Earphones",
+            "gender": "unisex",
+            "brand": "realme",
+            "rating": 4.8,
+            "price": 90,
+            "discount": "12",
+            "tags": [
+              "headphones",
+              "noise-cancelling",
+              "audio"
+            ],
+            "description": "Over-ear headphones with active noise cancellation.",
+            "image": "/ItemImages/NoiseCancellingHeadphones.jfif"
+          },
+          {
+            "id": 113,
+            "name": "Car Phone Wireless Charger Mount",
+            "subCategory": "Car Accessories",
+            "gender": "unisex",
+            "brand": "realme",
+            "rating": 4.6,
+            "price": 28,
+            "discount": "18",
+            "tags": [
+              "car",
+              "wireless",
+              "charger"
+            ],
+            "description": "Auto-clamp car mount with wireless charging.",
+            "image": "/ItemImages/CarPhoneWirelessChargerMount.jfif"
+          },
+          {
+            "id": 114,
+            "name": "LED Notification Phone Case",
+            "subCategory": "Protection",
+            "gender": "unisex",
+            "brand": "realme",
+            "rating": 4.3,
+            "price": 25,
+            "discount": "20",
+            "tags": [
+              "case",
+              "LED",
+              "notification"
+            ],
+            "description": "Smart LED phone case with notifications display.",
+            "image": "/ItemImages/LEDNotificationPhoneCase.jfif"
+          },
+          {
+            "id": 115,
+            "name": "USB OTG Adapter",
+            "subCategory": "Adapters",
+            "gender": "unisex",
+            "brand": "realme",
+            "rating": 4.5,
+            "price": 6,
+            "discount": "15",
+            "tags": [
+              "otg",
+              "usb",
+              "adapter"
+            ],
+            "description": "Connect USB devices to your smartphone easily.",
+            "image": "/ItemImages/USBOTGAdapter.jfif"
+          }
+        ]
+      }
+    ]
+  }
