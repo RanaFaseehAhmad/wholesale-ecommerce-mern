@@ -122,7 +122,25 @@ Use the command defined in your `Client/package.json` if it differs.
 
 ## Screenshots
 
-Screenshots of the application will be added here.
+### Home Page
+
+![Home Page](./screenshots/home.png)
+
+### Category Page
+
+![Category Page](./screenshots/category.png)
+
+### Product Details
+
+![Product Details](./screenshots/product-details.png)
+
+### Product Filtering
+
+![Product Filtering](./screenshots/filters.png)
+
+### Shopping Cart
+
+![Shopping Cart](./screenshots/cart.png)
 
 ## Key Learning Areas
 
