@@ -1,0 +1,62 @@
+.searchContainer {
+  position: relative;
+   border-radius: 18px;
+   width: 100%;
+   max-width: 300px;
+}
+.searchContainer:hover{
+  box-shadow: 0 3px 8px rgba(237, 137, 7, 0.849);
+
+}
+
+.searchBox {
+  background-color: white;
+  border: 2px solid rgb(255, 106, 0);
+  border-radius: 18px;
+  padding: 15px;
+  width: 100%;
+}
+
+
+.inputField {
+  border-radius: 18px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropDown {
+  background: white;
+  overflow: hidden;
+  border-radius: 18px;
+  overflow-y: auto;
+  max-height: 250px;
+  position: absolute;
+  z-index: 9999;
+  width: 300px;
+  scrollbar-width: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchSuggestions {
+  padding: 10px;
+  list-style-type: none;
+}
+
+.listSuggestions {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.listSuggestions:hover {
+  background-color: #f0f1f4;
+}
+
+@media (max-width:300px) {
+  .searchContainer {
+  width: 200px;
+  margin: 0 auto;
+  }
+}

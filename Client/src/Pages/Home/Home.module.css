@@ -1,0 +1,17 @@
+body {
+
+    margin: 0;
+    font-family: "Inter", sans-serif;
+
+}
+
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7fafc;
+    gap: 20px;
+    /* padding: 0 10px; */
+}
