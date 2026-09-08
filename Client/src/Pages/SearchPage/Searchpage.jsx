@@ -2,10 +2,9 @@ import style from "./Searchpage.module.css"
 import api from "../../Api/Axios";
 import Filter from "../../Components/Searchpage/Filter";
 
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect } from "react"
 import { Rating } from 'primereact/rating';
 import { useNavigate, useLocation, } from "react-router-dom"
-import { countCartContext } from "../../Api/countCartItems";
 
 
 function Searchpage() {
@@ -13,13 +12,13 @@ function Searchpage() {
     const [results, setResults] = useState([]);
     const [filterItems, setFilterItems] = useState([]);
     const [products, setProducts] = useState([])
-    const{refreshCartCount}=useContext(countCartContext)
-    const {search} = useLocation()
+
+    const { search } = useLocation()
 
     const searchQuery = new URLSearchParams(search).get("query");
     const productId = new URLSearchParams(search).get("productId");
     const fetchData = async () => {
-        console.log(productId)
+        // console.log(productId)
         try {
             if (productId) {
                 const response = await api.get(`/products/searchpage/?productId=${productId}`)
@@ -29,9 +28,6 @@ function Searchpage() {
                 const response = await api.get(`/products/searchpage/?query=${searchQuery}`)
                 setProducts(response.data.result)
             }
-
-
-
         } catch (error) {
             console.log(error.response?.data)
         }
@@ -41,16 +37,32 @@ function Searchpage() {
     }, [productId, searchQuery])
 
     const addTocart = async (e, productId) => {
-        console.log(productId)
+        // console.log(productId)
+        // console.log("ADD TO CART CLICKED");
+        // console.log("PRODUCT ID:", productId);
         e.stopPropagation()
+
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || [] ;
+            const existingItem = guestCart.find(item => item.productId === productId)
+            if (existingItem) {
+                existingItem.quantity += 1
+            }
+            else {
+                guestCart.push({ quantity: 1, productId: productId });
+            }
+            localStorage.setItem("guestCart", JSON.stringify(guestCart));
+            navigate(`/cart`)
+            return
+        }
         try {
             const response = await api.post("/cart/addToCart", {
                 productId: productId,
                 quantity: 1
             })
-            refreshCartCount()
-                navigate(`/cart`)
-        } catch (error) {   
+            navigate(`/cart`)
+        } catch (error) {
             console.log(error.response?.data?.message)
         }
     }

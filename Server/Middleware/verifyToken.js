@@ -1,24 +1,35 @@
-import jwt from "jsonwebtoken"
-export function verify(req, res, next) {
+import jwt from "jsonwebtoken";
+export function verifyToken(req, res, next) {
+    //  console.log("VERIFY TOKEN RUNNING");
     try {
 
-        const authheader = req.headers.authorization
-        if (!authheader) {
+        const authHeader = req.headers.authorization
+        if (!authHeader) {
             return res.status(401).json({
-                message: "no token found"
+                message: "Access token not provided"
             })
         }
-        const token = authheader.split("")[1]
+        const accessToken = authHeader.split(" ")[1]
 
-        const decoded = jwt.verify(
-            token,
-            process.env.JWT_SECRET,
-
+        const decode = jwt.verify(
+            accessToken,
+            process.env.JWT_SECRET
         )
-        req.user = decoded
+
+        req.user = decode
+        console.log(
+            "USER:",
+            req.user._id,
+            "ROLE:",
+            req.user.role,
+            "REQUEST:",
+            req.method,
+            req.originalUrl
+        );
         next()
     } catch (error) {
-        return res.status().json({
+        // console.log(error)
+        return res.status(401).json({
             message: error.message
         })
     }

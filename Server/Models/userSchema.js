@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
     role: {
         type: String,
-        enum: ["admin", "user"],
-        default: "user"
+        enum: ["seller", "buyer"],
+        // default: "user"
+        required: true
     },
     name: {
         type: String,
-        default: undefined
+        default: undefined,
+        required:true
     },
     gender: {
         type: String,
@@ -15,11 +17,10 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        default: undefined
     },
     password: {
         type: String,
-        default: undefined
+        default: undefined,
     },
     age: {
         type: Number,
@@ -29,9 +30,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: undefined
     },
-    phonenumber: {
-        type: [String],
+    countryCode: {
+        type: String,
         default: undefined
+    },
+    phone: {
+        type: [String],
+        default: undefined,
     },
     social: {
         Facebook: {
@@ -56,6 +61,15 @@ const userSchema = new mongoose.Schema({
     cart: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Cart"
+    },
+    resetOtp: {
+        type: String,
+        default: null
+    },
+
+    resetOtpExpires: {
+        type: Date,
+        default: null
     }
 })
 export default mongoose.model("User", userSchema)

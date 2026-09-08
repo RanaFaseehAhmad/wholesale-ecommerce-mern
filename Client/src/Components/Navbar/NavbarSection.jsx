@@ -3,14 +3,11 @@ import 'primeicons/primeicons.css';
 import api from "../../Api/Axios.js";
 
 import { Link } from "react-router-dom"
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
-import { SearchContext } from "../../DataContext/CreateContext";
 
 
 function NavbarSection() {
-
-    const { setInput, input } = useContext(SearchContext)
     const [category, setCategory] = useState([])
     const [open, setOpen] = useState(false)
 
@@ -48,7 +45,8 @@ function NavbarSection() {
                         <ul className={`${style.dropDown} ${open ? style.dropDownOpen : ""}`}>
                             {
                                 category.map((category, index) =>
-                                    <li key={index} onClick={() => setInput(category.name)} className={style.dropDownItem}>
+                                    <li key={index}
+                                     className={style.dropDownItem}>
 
                                         <Link to={`/categorypage?categoryId=${encodeURIComponent(category._id)}`} className={style.dropDownLink}  >{category.name} </Link>
                                     </li>

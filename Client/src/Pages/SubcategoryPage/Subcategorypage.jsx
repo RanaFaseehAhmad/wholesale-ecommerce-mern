@@ -4,7 +4,7 @@ import api from "../../Api/Axios";
 
 import Subcategorypagefilter from "../../Components/SubcategoryPage/Subcategoryfilter"
 import { Rating } from 'primereact/rating';
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
@@ -14,12 +14,11 @@ function Subcategorypage() {
   const { search } = useLocation();
   const searchQuery = new URLSearchParams(search).get("query");
   const subcategoryId = new URLSearchParams(search).get("subcategoryId");
-  console.log(searchQuery);
-  console.log(subcategoryId);
+  // console.log(searchQuery);
+  // console.log(subcategoryId);
 
   const [layoutType, setLayoutType] = useState("grid")
   const [isFilterOpen, setIsFilterOpen] = useState(false)
-  const [finalfilterResult, setFinalfilterResult] = useState([])
   const [data, setData] = useState([])
   const [allData, setAllData] = useState([])
   const initialFilter = {

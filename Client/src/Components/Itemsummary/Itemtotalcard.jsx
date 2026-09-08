@@ -1,25 +1,43 @@
 import style from "./Itemtotalcard.module.css"
 import api from "../../Api/Axios";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { countCartContext } from "../../Api/countCartItems";
+import { useSelector } from "react-redux";
 
 function Itemtotalcard({ products }) {
-    const { refreshCartCount } = useContext(countCartContext)
+    const islogedIn = useSelector(state => state.auth.isAuthenticated)
     // console.log(products._id)
     const navigate = useNavigate();
 
     const addTocart = async (productId) => {
         console.log(productId)
+        // const accessToken = localStorage.getItem("accessToken")
+        if (!islogedIn) {
+            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
+
+            const existingItem = guestCart.find(item => item.productId === productId)
+            if (existingItem) {
+                existingItem.quantity += 1
+            }
+            else {
+                guestCart.push({ quantity: 1, productId: productId })
+            }
+            localStorage.setItem("guestCart", JSON.stringify(guestCart))
+            navigate("/cart")
+            return
+        }
+
+        //----------loginUser addtoCart--------- //
+        // dispatch(cartStart())
         try {
             const response = await api.post("/cart/addToCart", {
                 productId: productId,
                 quantity: 1
             })
-            refreshCartCount()
+            
             navigate("/cart")
+
             console.log(response.data.result)
-           
+
         } catch (error) {
             console.log(error.response?.data?.message)
         }

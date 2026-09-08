@@ -1,5 +1,4 @@
 import style from "./Subcategoryfilter.module.css"
-import { Rating } from 'primereact/rating';
 import { useEffect } from "react";
 import { useState } from "react";
 function Subcategoryfilter({ allData, isFilterOpen, clearAllFilter, filter, setFilter }) {
