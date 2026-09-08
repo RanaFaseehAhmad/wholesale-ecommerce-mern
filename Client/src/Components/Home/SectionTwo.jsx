@@ -2,8 +2,7 @@ import style from "./SectionTwo.module.css"
 import api from "../../Api/Axios";
 import 'primeicons/primeicons.css';
 import { Link } from "react-router-dom"
-import { useState } from "react"
-import { useEffect } from "react";
+import { useState, useEffect } from "react"
 
 function SectionTwo() {
     const [discountItems, setDiscountItems] = useState([])

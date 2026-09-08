@@ -1,15 +1,17 @@
 import Cart from "../Models/cartSchema.js";
 import Product from "../Models/productSchema.js";
+import User from "../Models/userSchema.js";
 
 export async function addToCart(req, res) {
-    const { productId, quantity } = req.body
-    // console.log(productId)
     try {
-        const cart = await Cart.findOne()
-    //  console.log("productId from frontend:", productId)
-// console.log("cart items:", cart.items)
+        const { productId, quantity } = req.body
+        //  console.log("productId from frontend:", productId)
+        const userId = req.user._id;
+
+        const cart = await Cart.findOne({ user: userId })
         if (!cart) {
             const result = await Cart.create({
+                user: userId,
                 items: [{
                     product: productId,
                     quantity
@@ -20,6 +22,7 @@ export async function addToCart(req, res) {
                 result
             })
         };
+
         const cartItems = cart.items.find(
             item => item.product.toString() === productId
         )
@@ -33,11 +36,14 @@ export async function addToCart(req, res) {
 
             })
         }
+
         await cart.save()
+
         return res.status(200).json({
             message: "cartItem added",
             result: cart
         })
+
     } catch (error) {
         console.log(error)
         return res.status(500).json({
@@ -45,6 +51,7 @@ export async function addToCart(req, res) {
         })
     }
 }
+
 export async function getCartItems(req, res) {
     try {
         const result = await Cart.find().populate("items.product")
@@ -53,7 +60,7 @@ export async function getCartItems(req, res) {
                 message: "cart is empty"
             })
         }
-        // console.log(result)
+        console.log(result)
         return res.status(200).json({
             message: "get item cart successfully",
             result
@@ -177,5 +184,69 @@ export async function removeItem(req, res) {
         return res.status(500).json({
             message: error.message
         })
+    }
+}
+export async function guestCartItems(req, res) {
+    try {
+        const { productIds } = req.body
+        // console.log(productIds)
+        const result = await Product.find({
+            _id: {
+                $in: productIds
+            }
+        })
+        return res.status(200).json({
+            message: "found guest products",
+            result
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: error.message
+        })
+    }
+}
+
+export async function mergeGuestCart(req, res) {
+    const { guestCart } = req.body;
+    try {
+        let cart = await Cart.findOne({ user: req.user._id });
+        if (!cart) {
+            cart = await Cart.create({
+                user: req.user._id,
+                items: guestCart.map(item => ({
+                    product: item.productId,
+                    quantity: item.quantity
+                }))
+            });
+            return res.status(200).json({
+                message: "cart merged"
+            });
+        }
+
+        for (const item of guestCart) {
+            const existingItem = cart.items.find(
+                cartItem => cartItem.product.toString() === item.productId
+            );
+            if (existingItem) {
+                existingItem.quantity += item.quantity
+            }
+            else {
+                cart.items.push({
+                    product: item.productId,
+                    quantity: item.quantity,
+                });
+            }
+
+        }
+        await cart.save();
+        return res.status(200).json({
+            message: "cart merged"
+        });
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: error.message
+        });
     }
 }

@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom"
 import style from "./SectionSeven.module.css"
 
 function SectionSeven() {

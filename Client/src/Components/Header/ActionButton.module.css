@@ -5,7 +5,6 @@
     justify-content: center;
     width: 228px;
     height: 41px;
-
 }
 
 .action a {
@@ -26,22 +25,33 @@
 .colorcartIcon {
     color: orange;
 }
-.LoginRegister{
+
+.LoginRegister {
     display: flex;
     align-items: center;
-   gap: 5px;
-   text-decoration: none;
+    gap: 5px;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
 }
-.LoginRegisterText{
+
+.LoginRegisterText {
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
     color: black;
-    
+
 }
+
 .actionIcon {
     color: black;
 }
+
+.LoginRegister:hover .userDropdown {
+    display: block;
+
+}
+
 
 /* .heartIcon:hover {
     color: red
@@ -63,4 +73,70 @@
     border-radius: 20px;
     color: white;
 
+}
+
+.LoginRegister::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    width: 100%;
+    height: 10px;
+}
+
+.userDropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    width: 200px;
+    padding: 8px;
+
+
+
+    display: none;
+    z-index: 1000;
+}
+
+.userName {
+    margin: 5px 0;
+    border-bottom: 1px solid #999999;
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    background: transparent;
+}
+
+.dropdownItem {
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+}
+
+.dropdownItem:hover {
+    background-color: #f5f5f5;
 }

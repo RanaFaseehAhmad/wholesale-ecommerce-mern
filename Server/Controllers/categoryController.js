@@ -19,7 +19,7 @@ export async function showCategory(req, res) {
 
 export async function getAllCategoryData(req, res) {
     const { categoryId } = req.query
-    console.log(categoryId)
+    // console.log(categoryId)
     try {
         const [category, products, subcategory] = await Promise.all([
             Category.findById(categoryId),
@@ -28,7 +28,7 @@ export async function getAllCategoryData(req, res) {
         ])
         // console.log(category)
         // console.log(products)
-        console.log("subCategory:",subcategory)
+        // console.log("subCategory:",subcategory)
 
         return res.status(200).json({
             message: "found",

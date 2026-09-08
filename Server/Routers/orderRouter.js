@@ -1,6 +1,8 @@
 import express from "express"
+import { createOrder} from "../Controllers/orderController.js"
 const router = express.Router()
-import upload from "../config/multer.js";
+
+router.post("/createOrder", createOrder)
 
 
 

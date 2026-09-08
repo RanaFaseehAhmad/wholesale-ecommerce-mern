@@ -1,0 +1,730 @@
+.containerMain {
+    width: 100%;
+    min-height: 100vh;
+    /* background-color: #f7f8fa; */
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ================= MAIN SECTIONS ================= */
+
+.leftSection,
+.rightSection {
+    width: 50%;
+    min-height: calc(100vh - 80px);
+}
+
+.leftSection {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.leftSection img {
+    width: 100%;
+    max-width: 600px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ================= RIGHT SECTION ================= */
+
+.rightSection {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+/* ================= LOGIN CONTAINER ================= */
+
+.logInContainer {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    /* box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08); */
+}
+
+.error {
+    display: block;
+    margin-top: -8px;
+    color: #d93025;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.signInOneClickWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.signInOneClickWrapper h1,
+.signIn h1 {
+    margin: 0 0 30px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #222222;
+    text-align: center;
+}
+
+.signInOneClickWrapper .subTitle {
+    margin-bottom: 8px;
+    color: #666666;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ================= BUTTONS ================= */
+
+.signInOneClickWrapper button {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.signInOneClickWrapper button:hover {
+    background-color: #f5f5f5;
+    border-color: #bbbbbb;
+}
+
+.signInOneClickWrapper button i {
+    font-size: 18px;
+}
+
+/* ================= FORM ================= */
+
+.signIn form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: none;
+}
+
+
+
+/* =================Both OR ================= */
+
+.signInOneClickWrapper p,
+.signIn p {
+    margin: 5px 0;
+    color: #999999;
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+}
+
+.signInOneClickWrapper p::before,
+.signInOneClickWrapper p::after,
+.signIn p::before,
+.signIn p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background-color: #eeeeee;
+}
+
+.signInOneClickWrapper p::before,
+.signIn p::before {
+    left: 0;
+}
+
+.signInOneClickWrapper p::after,
+.signIn p::after {
+    right: 0;
+}
+
+/* ================= CREATE ACCOUNT ================= */
+
+.createAccountLink {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+}
+
+.createAccountLink span span {
+    color: #007bff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.createAccountLink span span:hover {
+    text-decoration: underline;
+}
+
+/* ================= CLEAR FLOAT ================= */
+
+.containerMain::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+
+/* EMAIL LOGIN FORM */
+/* ================================================= */
+.emailLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: none;
+}
+
+/* ================= INPUTS ================= */
+
+
+.signInEmailField,
+.passwordWrapper {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+
+
+.signInEmailField:focus,
+.passwordWrapper:focus-within {
+    border-color: #f28c28;
+    box-shadow: 0 0 0 2px rgba(242, 140, 40, 0.12);
+}
+
+/* ================= PASSWORD ================= */
+.passwordWrapper {
+    display: flex;
+}
+
+.passwordWrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.passwordToggle {
+    width: 10px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* ================= FORGOT PASSWORD ================= */
+.emailLoginForm .forgotPass {
+    align-self: flex-end;
+    color: #007bff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.emailLoginForm .forgotPass:hover {
+    text-decoration: underline;
+}
+
+/* ================= CONTINUE BUTTON ================= */
+.emailLoginForm .loginBtn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    background-color: #222222;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 20px;
+}
+
+.emailLoginForm .loginBtn:hover {
+    background-color: #000000;
+}
+
+/* ================================================= */
+/* SOCIAL LOGIN BUTTONS */
+/* ================================================= */
+.directSigninBtnWrapper {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.directSigninBtnWrapper .socialBtn {
+    flex: 1;
+    height: 52px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    font-size: 0;
+}
+
+
+.directSigninBtnWrapper .socialBtn i {
+    font-size: 20px;
+}
+
+.directSigninBtnWrapper .socialBtn:hover {
+    background-color: #f5f5f5;
+    border-color: #bbbbbb;
+}
+
+
+
+
+
+/* ================================================= */
+/*               CREATE ACCOUNT SCREEN               */
+/* ================================================= */
+
+.createAcount {
+    width: 100%;
+}
+
+.createAcount>h1 {
+    margin: 0 0 30px;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #222222;
+    text-align: center;
+}
+
+/* ================= FORM ================= */
+
+.createAcount .createAccForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 22px;
+}
+
+/* ================================================= */
+/*                  ROLE BUTTONS                     */
+/* ================================================= */
+
+.groupRoleBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+/* ================= BUYER / SELLER ================= */
+
+.buyer,
+.seller {
+    width: 100%;
+    min-height: 105px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+
+.buyer:hover,
+.seller:hover {
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+
+/* ================= RADIO ================= */
+
+.buyerRadioBtn,
+.sellerRadioBtn {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #222222;
+}
+
+/* ================================================= */
+/*                    CONTENT                        */
+/* ================================================= */
+
+.buyerContentWrapper,
+.sellerContentWrapper {
+    flex: 1;
+    margin-left: 15px;
+    padding-right: 10px;
+}
+
+.buyerTitle,
+.sellerTitle {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.buyerDesc,
+.sellerDesc {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #777777;
+}
+
+/* ================= RIGHT ICON ================= */
+
+.buyerShoppingIconWarpper,
+.sellerShoppingIconWarpper {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #f3f3f3;
+    color: #444444;
+}
+
+.buyerShoppingIconWarpper i,
+.sellerShoppingIconWarpper i {
+    font-size: 20px;
+}
+
+
+/* ================================================= */
+/*                 SELECTED CARD                     */
+/* ================================================= */
+
+/*
+   Radio checked hone par card ko highlight karne
+   ke liye :has() use kiya gaya hai.
+*/
+
+.buyer:has(input:checked),
+.seller:has(input:checked) {
+    border-color: #222222;
+    background-color: #fafafa;
+}
+
+/* ================================================= */
+/*                CONTINUE BUTTON                    */
+/* ================================================= */
+
+.createAcount .createAccForm>button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222222;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.createAcount .createAccForm>button:hover {
+    background-color: #000000;
+}
+
+/* ================================================= */
+/*                    BACK LINK                      */
+/* ================================================= */
+
+.BackLink {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+}
+
+.BackLink>span>span {
+    color: #007bff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.BackLink>span>span:hover {
+    text-decoration: underline;
+}
+
+/* ================================================= */
+/*             BUYER SIGN IN / CREATE ACCOUNT        */
+/* ================================================= */
+
+.buyerSignIn {
+    width: 100%;
+}
+
+.buyerSignIn h1 {
+    margin: 0 0 30px;
+
+    font-size: 32px;
+    font-weight: 600;
+
+    color: #222222;
+
+    text-align: center;
+}
+
+
+/* ================= FORM ================= */
+
+.buyerSignInForm {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    border: none;
+}
+
+.buyerSignInForm>input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    outline: none;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.buyerSignInForm>input[type="email"]::placeholder,
+.buyerSignInForm>input[type="text"]::placeholder,
+.buyerSignInForm>input[type="password"]::placeholder {
+    color: #999999 !important;
+}
+
+.buyerSignInForm>input[type="email"]:focus,
+.buyerSignInForm>input[type="text"]:focus,
+.buyerSignInForm>input[type="password"]:focus,
+.phoneInput:focus {
+    border-color: #999999 !important;
+}
+
+.phoneContainer {
+    width: 100%;
+}
+
+.phoneInput {
+    width: 100% !important;
+    height: 48px !important;
+}
+
+.countryButton {
+    background: white !important;
+}
+
+.countryDropdown {
+    width: 300px !important;
+}
+
+
+/* ================================================= */
+/*                  CONTINUE BUTTON                  */
+/* ================================================= */
+
+.buyerSignInForm>button {
+    width: 100%;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background-color: #222222;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.buyerSignInForm>button:hover {
+    background-color: #000000;
+}
+
+/* ================================================= */
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 25px;
+    }
+
+    .leftSection,
+    .rightSection {
+        width: 100%;
+        float: none;
+        min-height: auto;
+    }
+
+    .leftSection {
+        padding: 30px 25px 10px;
+    }
+
+    .leftSection img {
+        height: 350px;
+    }
+
+    .rightSection {
+        padding: 30px 25px 50px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .header {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .logo img {
+        width: 110px;
+    }
+
+    .leftSection {
+        padding: 20px;
+    }
+
+    .leftSection img {
+        height: 250px;
+    }
+
+    .rightSection {
+        padding: 20px;
+    }
+
+    .logInContainer {
+        padding: 25px 20px;
+    }
+
+    .signInOneClickWrapper h1,
+    .signIn h1 {
+        font-size: 27px;
+    }
+
+    .createAcount>h1 {
+        font-size: 23px;
+        margin-bottom: 25px;
+    }
+
+    .buyer,
+    .seller {
+        min-height: 100px;
+        padding: 15px;
+    }
+
+    .buyerContentWrapper,
+    .sellerContentWrapper {
+        margin-left: 12px;
+    }
+
+    .buyerTitle,
+    .sellerTitle {
+        font-size: 17px;
+    }
+
+    .buyerDesc,
+    .sellerDesc {
+        font-size: 12px;
+    }
+
+    .buyer>span,
+    .seller>span {
+        width: 40px;
+        height: 40px;
+    }
+
+    .buyerSignIn h1 {
+        font-size: 27px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .buyerSignInForm {
+        gap: 12px;
+    }
+
+    .buyerSignInForm>button {
+        height: 46px;
+    }
+}

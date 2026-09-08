@@ -1,0 +1,317 @@
+/* Full screen background overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    /* Back window blur */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    padding: 20px;
+}
+
+
+/* Login popup card */
+.removePopup{
+     color: white;
+    background-color: red;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signIn {
+    width: 100%;
+    max-width: 430px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+    border-radius: 14px;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    animation: popupOpen 0.2s ease-out;
+}
+
+
+/* Heading */
+.signIn h1 {
+    margin: 0 0 25px;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* Form */
+.emailLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border:none
+}
+
+
+/* Email input */
+.signInEmailField,
+.passwordWrapper input {
+    width: 100%;
+    height: 48px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+
+    padding: 0 14px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+.signInEmailField:focus,
+.passwordWrapper input:focus {
+    border-color: #2874f0;
+
+    box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+}
+
+
+/* Password */
+.passwordWrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+.passwordWrapper input {
+    padding-right: 48px;
+}
+
+
+/* Eye button */
+.passwordToggle {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #666;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.passwordToggle:hover {
+    color: #222;
+}
+
+
+/* Error */
+.error {
+    color: #d93025;
+    font-size: 13px;
+
+    margin-top: -5px;
+}
+
+
+/* Forgot password */
+.forgotPass {
+    align-self: flex-end;
+
+    margin-top: 2px;
+
+    color: #2874f0;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.forgotPass:hover {
+    text-decoration: underline;
+}
+
+
+/* Login button */
+.loginBtn {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2874f0;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s, transform 0.1s;
+}
+
+
+.loginBtn:hover {
+    background: #1f65d1;
+}
+
+
+.loginBtn:active {
+    transform: scale(0.98);
+}
+
+
+/* OR */
+.signIn > p {
+    text-align: center;
+
+    margin: 22px 0;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* Social buttons wrapper */
+.directSigninBtnWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Social buttons */
+.socialBtn {
+    width: 100%;
+    height: 45px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    transition: background 0.2s, border-color 0.2s;
+}
+
+
+.socialBtn:hover {
+    background: #f7f7f7;
+    border-color: #bbb;
+}
+
+
+.socialBtn i {
+    font-size: 17px;
+}
+
+
+/* Create account */
+.createAccountLink {
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+
+.createAccountLink span span {
+    color: #2874f0;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.createAccountLink span span:hover {
+    text-decoration: underline;
+}
+
+
+/* Popup animation */
+@keyframes popupOpen {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 500px) {
+
+    .overlay {
+        padding: 15px;
+    }
+
+    .signIn {
+        max-width: 100%;
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .signIn h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}

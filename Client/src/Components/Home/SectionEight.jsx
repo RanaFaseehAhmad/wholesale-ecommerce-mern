@@ -1,5 +1,4 @@
 import style from "./SectionEight.module.css"
-import { Link } from "react-router-dom"
 
 function SectionEight() {
     return (

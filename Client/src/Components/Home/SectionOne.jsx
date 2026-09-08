@@ -2,18 +2,14 @@ import style from "./SectionOne.module.css"
 import api from "../../Api/Axios";
 import { Link } from "react-router-dom"
 
-import { useState, useContext } from "react";
-import { SearchContext } from "../../DataContext/CreateContext";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 function SectionOne() {
 
-    const { setInput, input } = useContext(SearchContext)
     const [index, setIndex] = useState(0)
     const [category, setCategory] = useState([])
-    // console.log(products)
-    // console.log(input)
+  
 
     const cateogryFunc = async () => {
         try {
@@ -48,7 +44,8 @@ function SectionOne() {
             <ul className={style.MainMenu}>
                 {
                     category.map((data, _id) => (
-                        <li key={_id} onClick={() => setInput(data)}>
+                        <li key={_id}
+                        >
                             <Link className={style.MainMenuList} to={`/categorypage?categoryId=${encodeURIComponent(data._id)}`}>{data.name}</Link>
                             <span className="pi pi-angle-right"></span>
                         </li>

@@ -1,28 +1,72 @@
 import style from "./Cart.module.css"
 import api from "../../Api/Axios";
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { countCartContext } from "../../Api/countCartItems";
+import { useEffect, useState } from "react";
+import LoginPopup from "../../Components/LoginPopup/LoginPopup";
+import { useDispatch, useSelector } from "react-redux";
+import {  cartCount } from "../../Features/cart/cartSlice";
+
+
 function Cart() {
     const navigate = useNavigate()
     const [selectedItems, setSelectedItems] = useState([]);
+    const [showLoginPopup, setShowLoginPopup] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("accessToken"));
     const [data, setData] = useState([])
-    const { refreshCartCount, setCount } = useContext(countCartContext)
 
-    const fetchData = async () => {
+
+    const dispatch = useDispatch()
+    const guestData = async () => {
+        const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
+        if (guestCart.length === 0) {
+            setData([])
+            dispatch(cartCount(guestCart.length || 0))
+            return
+        }
+        const productIds = guestCart.map(item => item.productId)
+        // console.log(productIds)
         try {
-            const response = await api.get("/cart/cartItems")
+            const response = await api.post("/cart/guestCartItems", { productIds })
+
             console.log(response.data.result)
-            setData(response.data.result)
+            const product = response.data.result
+            const items = product.map(product => {
+                const guestItem = guestCart.find(item => item.productId === product._id);
+                return {
+                    product,
+                    quantity: guestItem.quantity
+                };
+            });
+            dispatch(cartCount(product?.length || 0))
+            setData([{ items }])
+            console.log("result is", [{ items }])
         } catch (error) {
             console.log(error.response?.data?.message)
         }
     }
 
-    console.log(data)
+    //----LOGIN USER-----///
+
+    const fetchData = async () => {
+        try {
+            const response = await api.get("/cart/cartItems")
+            console.log(response.data.result[0].items.length)
+            const result = response.data?.result || []
+            setData(result)
+            dispatch(cartCount(result[0]?.items?.length || 0))
+            // refreshCartCount()
+        } catch (error) {
+            console.log(error.response?.data?.message)
+        }
+    }
+
     useEffect(() => {
-        fetchData()
-    }, [])
+        if (isLoggedIn) {
+            fetchData(); // logged-in user ka DB cart
+        } else {
+            guestData(); // guest ka localStorage cart
+        }
+    }, [isLoggedIn]);
 
     const getItemTotal = (priceparam, quantity) => {
         const qty = quantity || 1
@@ -42,45 +86,118 @@ function Cart() {
 
     const increaseQty = async (e, productId) => {
         e.stopPropagation()
-        try {
-            const response = await api.patch("/cart/increaseQty", { productId })
-            // console.log(response.data)
-            setData(prev =>
-                prev.map(cart => ({
-                    ...cart,
-                    items: cart.items.map(item =>
-                        item.product._id === productId ?
-                            {
-                                ...item,
-                                quantity: response.data.cartItem.quantity
-                            }
-                            : item
-                    )
-                })
-                )
-            )
-        } catch (error) {
-            console.log(error.response?.data?.message)
+
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
+            const updatedGuestCart = guestCart.map(item => {
+                if (item.productId === productId) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                }
+                return item
+            });
+            localStorage.setItem(
+                "guestCart",
+                JSON.stringify(updatedGuestCart)
+            );
+            // setData(prev =>
+            //     prev.map(cart => ({
+            //         ...cart,
+            //         items: cart.items.map(item =>
+            //             item.product._id === productId ?
+            //                 {
+            //                     ...item,
+            //                     quantity: item.quantity + 1
+            //                 } : item
+            //         )
+            //     }))
+            // )
+            guestData()
+            return
+        }
+        // -------LoginUser increaseQty-----//
+        else {
+            try {
+                const response = await api.patch("/cart/increaseQty", { productId })
+                // console.log(response.data)
+                // setData(prev =>
+                //     prev.map(cart => ({
+                //         ...cart,
+                //         items: cart.items.map(item =>
+                //             item.product._id === productId ?
+                //                 {
+                //                     ...item,
+                //                     quantity: response.data.cartItem.quantity
+                //                 }
+                //                 : item
+                //         )
+                //     })
+                //     )
+                // )
+                fetchData()
+            } catch (error) {
+                console.log(error.response?.data?.message)
+            }
         }
     }
     const decreaseQty = async (e, productId) => {
         e.stopPropagation()
+
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
+            const updatedGuestCart = guestCart.map(item => {
+                if (item.productId === productId) {
+                    return {
+                        ...item,
+                        quantity: item.quantity - 1
+                    }
+                }
+                return item
+            });
+            localStorage.setItem(
+                "guestCart",
+                JSON.stringify(updatedGuestCart)
+            );
+
+            // setData(prev =>
+            //     prev.map(cart => ({
+            //         ...cart,
+            //         items: cart.items.map(item =>
+            //             item.product._id === productId
+            //                 ? {
+            //                     ...item,
+            //                     quantity: item.quantity - 1
+            //                 }
+            //                 : item
+            //         )
+            //     }))
+            // );
+            guestData()
+            return
+        }
+
+        // -------LoginUser DecreaseQty-----//
         try {
             const response = await api.patch("/cart/decreaseQty", { productId })
             // console.log(response.data.cartItems)
-            setData(prev =>
-                prev.map(cart => ({
-                    ...cart,
-                    items: cart.items.map(cartitem =>
-                        cartitem.product._id === productId ?
-                            {
-                                ...cartitem,
-                                quantity: response.data.cartItems.quantity
-                            } :
-                            cartitem
-                    )
-                }))
-            )
+            // setData(prev =>
+            //     prev.map(cart => ({
+            //         ...cart,
+            //         items: cart.items.map(cartitem =>
+            //             cartitem.product._id === productId ?
+            //                 {
+            //                     ...cartitem,
+            //                     quantity: response.data.cartItems.quantity
+            //                 } :
+            //                 cartitem
+            //         )
+            //     }))
+            // )
+            fetchData()
         } catch (error) {
             console.log(error.response?.data?.message)
         }
@@ -93,40 +210,63 @@ function Cart() {
             item.product.price
         ), 0)
     // only selected items are counted
-    console.log("selectedItems:", selectedItems)
+    // console.log("selectedItems:", selectedItems)
 
     const removeItem = async (productId) => {
+
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+
+            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
+            const removeGuestItem = guestCart.filter(item =>
+                item.productId !== productId
+            )
+            localStorage.setItem("guestCart", JSON.stringify(removeGuestItem))
+
+            guestData()
+            return
+        }
+        // ---------------Login user removeitem--------------//
         try {
             await api.delete("/cart/removeItem", { data: { productId } })
-            setData(prev =>
-                prev.map(cart => ({
-                    ...cart,
-                    items: cart.items.filter(item => item.product._id.toString() !== productId)
-                }))
-            )
-            refreshCartCount()
 
-        } catch (error) {
-            console.log(error.response?.data?.mesage)
-        }
-    }
+            fetchData()
 
-    const removeAllcartItems = async () => {
-        try {
-            const response = await api.delete("/cart/removeAllcartItems")
-            console.log(response.data)
-            setData([])
-           setCount(0)
         } catch (error) {
             console.log(error.response?.data?.message)
         }
     }
 
+    const removeAllcartItems = async () => {
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+            localStorage.removeItem("guestCart")
+            guestData()
+            return
+        }
+        // -------login User remove all items--------//
+        try {
+            const response = await api.delete("/cart/removeAllcartItems")
+            console.log(response.data)
+            fetchData()
+        } catch (error) {
+            console.log(error.response?.data?.message)
+        }
+    }
+
+    const handleCheckOut = async () => {
+        const accessToken = localStorage.getItem("accessToken")
+        if (!accessToken) {
+            setShowLoginPopup(true)
+        }
+    }
+    const cartItems = useSelector(state => state.cart.count)
+    console.log(cartItems)
     return (
         <div className={style.container}>
             <div className={style.cartWrapper}>
                 <div className={style.Title}>
-                    <h1>Shopping Cart {data[0]?.items?.length}</h1>
+                    <h1>Shopping Cart {cartItems}</h1>
                 </div>
                 {data[0]?.items?.length > 0 && <div className={style.selectDeselectAll}>
                     <label> <input name="select" type="checkbox" checked={
@@ -244,7 +384,7 @@ function Cart() {
                                             <p className={style.totalText}>Total:</p>
                                             <span>Rs {subtotal}</span>
                                         </div>
-                                        <button className={style.checkout}>CheckOut</button>
+                                        <button className={style.checkout} onClick={handleCheckOut}>CheckOut</button>
                                         <span className={style.paymentCards}>
                                             <img className={style.Cardsimg} src="/itemsummarypage/paypal.jfif" alt="" />
                                             <img className={style.Cardsimg} src="/itemsummarypage/visa.jfif" alt="" />
@@ -252,6 +392,7 @@ function Cart() {
                                             <img className={style.Cardsimg} src="/itemsummarypage/applepay.png" alt="" />
                                         </span>
                                     </div>
+                                    {showLoginPopup && (<LoginPopup onLogin={() => setIsLoggedIn(true)} onClose={() => setShowLoginPopup(false)} />)}
                                 </div>
                             </div>
                         </div>
@@ -302,7 +443,7 @@ function Cart() {
                     )
 
                 }</div>
-        </div >
+        </div>
     )
 }
 

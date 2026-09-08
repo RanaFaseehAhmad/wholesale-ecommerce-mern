@@ -17,12 +17,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.use("", authRouter)
+
 app.use("/products", productRouter)
 app.use("/category", categoryRouter)
 app.use("/cart", cartRouter)
-app.use("", userRouter)
-app.use("", orderRouter)
+app.use("/auth", authRouter )
+app.use("/order", orderRouter)
 
 
 
