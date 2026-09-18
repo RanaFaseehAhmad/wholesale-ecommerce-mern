@@ -2,7 +2,7 @@
 
 A full-stack wholesale e-commerce platform built using the **MERN Stack**. The application provides a complete e-commerce experience with user authentication, product browsing, search functionality, category and subcategory navigation, dynamic filtering, product reviews, shopping cart functionality, order management, and image management.
 
-The project implements modern authentication using **JWT, Access Tokens, and Refresh Tokens**. It also uses **Axios Interceptors** for handling authenticated API requests, **Redux Toolkit** for global state management, **Cloudinary** for cloud-based image storage, and **Nodemailer** for email functionality.
+The project implements modern authentication using **JWT, Access Tokens, and Refresh Tokens**. It also uses **Axios Interceptors** for handling authenticated API requests,**Redux Toolkit** for client-side/global application state and **TanStack Query** for server-state management., **Cloudinary** for cloud-based image storage, and **Nodemailer** for email functionality.
 
 ---
 
@@ -97,6 +97,7 @@ The project implements modern authentication using **JWT, Access Tokens, and Ref
 - React.js
 - React Router
 - Redux Toolkit
+- TanStack Query
 - Axios
 - Axios Interceptors
 - React Hook Form
@@ -299,9 +300,27 @@ The response interceptor:
 
 ## 🗃️ State Management
 
-Redux Toolkit is used for global state management.
+The application uses Redux Toolkit and TanStack Query for state management.
 
-Currently, Redux is used to manage the **shopping cart count**, allowing cart information to be shared between different components such as the Navbar and Cart page without prop drilling.
+**Redux Toolkit**
+
+Redux Toolkit is used for global client-side state, such as the shopping cart count and authentication-related state that needs to be shared across different components.
+
+**TanStack Query**
+
+TanStack Query is used for server-state management, including fetching, caching, synchronizing, and updating data received from the backend APIs.
+
+**It is used for:**
+
+Product data fetching
+Infinite product pagination
+Cart data fetching
+Cart mutations
+Query invalidation and automatic refetching
+Managing loading and fetching states
+Guest and authenticated cart queries
+
+This separation allows Redux Toolkit to handle client-side application state while TanStack Query manages data coming from the backend.
 
 ---
 
@@ -319,6 +338,8 @@ Guest User
 Add Product to Cart
     ↓
 Cart Data Stored in localStorage
+    ↓ 
+TanStack Query Fetches Product Details
 ```
 
 ### Logged-in User
@@ -331,6 +352,18 @@ Logged-in User
 Add Product to Cart
     ↓
 Cart Data Stored in MongoDB
+    ↓
+TanStack Query Fetches Cart Data
+
+TanStack Query is used to manage cart server state, including:
+
+Fetching logged-in user cart data
+Fetching guest cart product data
+Increasing product quantity
+Decreasing product quantity
+Removing individual cart items
+Removing all cart items
+Invalidating and refetching cart queries after mutations
 ```
 
 The cart supports:
@@ -386,6 +419,12 @@ This project demonstrates practical experience with:
 - MERN Stack development
 - React state management
 - Redux Toolkit
+- TanStack Query
+- Server-state management
+- Query caching and invalidation
+- useQuery
+- useMutation
+- useInfiniteQuery
 - React Context API
 - React Router
 - Axios
