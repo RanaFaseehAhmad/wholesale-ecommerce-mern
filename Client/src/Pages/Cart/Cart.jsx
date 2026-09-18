@@ -1,72 +1,203 @@
 import style from "./Cart.module.css"
-import api from "../../Api/Axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import LoginPopup from "../../Components/LoginPopup/LoginPopup";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  cartCount } from "../../Features/cart/cartSlice";
+import { cartCount, ClearSelectedItems, SetselectedItems } from "../../Features/cart/cartSlice";
+import Signin from "../../Components/SignIn/Signin";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { guestUserItems, loginUserCartItems, increaseLoginQtyMutation, decreaseLoginQtyMutation, removeLoginItem, removeAllLoginItem, handleOrder } from "../../Api/productApi";
+import { Toast } from "primereact/toast";
+
 
 
 function Cart() {
-    const navigate = useNavigate()
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [showLoginPopup, setShowLoginPopup] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("accessToken"));
-    const [data, setData] = useState([])
-
-
+      const toast = useRef(null);
     const dispatch = useDispatch()
-    const guestData = async () => {
-        const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
-        if (guestCart.length === 0) {
-            setData([])
-            dispatch(cartCount(guestCart.length || 0))
+    const navigate = useNavigate()
+    const queryClient = useQueryClient()
+
+    const [showLoginPopup, setShowLoginPopup] = useState(false);
+    const [guestCart, setGuestCart] = useState(
+        () => JSON.parse(localStorage.getItem("guestCart")) || []
+    );
+
+    const isLoggedIn = useSelector((state) => state.auth.isAuthenticated)
+    const selectedIds = useSelector((state) => state.cart.selectedItems)
+    console.log("selectedIds", selectedIds)
+
+
+    const productIds = guestCart.map(item => item.productId)
+
+    const { data: guestData,
+        isLoading: guestLoading,
+        isError: guestError
+    } = useQuery({
+        queryKey: ["guestCart", productIds],
+        queryFn: () => guestUserItems(productIds),
+        enabled: !isLoggedIn && productIds.length > 0
+    });
+    const { data: loginData,
+        isLoading: loginLoading,
+        isError: loginError } = useQuery({
+            queryKey: ["cart"],
+            queryFn: loginUserCartItems,
+            enabled: isLoggedIn
+        });
+
+    const loginCartItems = loginData?.result?.[0]?.items || [];
+    console.log("login cart items", loginCartItems)
+    const guestProducts = guestData?.result || [];
+
+    const guestcartItems = guestProducts.map(product => {
+        const guestItem = guestCart.find(item => item.productId === product._id)
+        return {
+            product,
+            quantity: guestItem?.quantity || 1
+        }
+    })
+
+    const cartItems = isLoggedIn ? loginCartItems : guestcartItems
+    console.log("cartItems", cartItems)
+
+
+
+
+    const increaseQtyMutation = useMutation({
+        mutationFn: increaseLoginQtyMutation,
+        onSuccess: (data) => {
+            console.log("login item quantity increased", data);
+            queryClient.invalidateQueries({
+                queryKey: ['cart']
+            })
+        },
+        onError: (error) => {
+            console.log(error.response?.data?.message)
+        }
+    })
+
+    const increaseQty = (e, productId) => {
+        console.log("increase")
+        e.stopPropagation()
+        console.log("3. increaseQty called", productId);
+        console.log("4. isLoggedIn:", isLoggedIn);
+        if (!isLoggedIn) {
+            const updatedGuestCart = guestCart.map(item => {
+                if (item.productId === productId) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                }
+                return item
+            });
+            setGuestCart(updatedGuestCart);
+            localStorage.setItem(
+                "guestCart",
+                JSON.stringify(updatedGuestCart)
+            );
             return
         }
-        const productIds = guestCart.map(item => item.productId)
-        // console.log(productIds)
-        try {
-            const response = await api.post("/cart/guestCartItems", { productIds })
+        else {
+            console.log("5. calling mutation");
+            increaseQtyMutation.mutate(productId)
+        }
+    }
 
-            console.log(response.data.result)
-            const product = response.data.result
-            const items = product.map(product => {
-                const guestItem = guestCart.find(item => item.productId === product._id);
-                return {
-                    product,
-                    quantity: guestItem.quantity
-                };
+    const decreaseQtyMutation = useMutation({
+        mutationFn: decreaseLoginQtyMutation,
+        onSuccess: (data) => {
+            console.log("dcrease quantity successfuly", data);
+            queryClient.invalidateQueries({
+                queryKey: ['cart']
+            })
+        },
+        onError: (error) => {
+            console.log(error.response?.data?.message)
+        }
+    })
+
+    const decreaseQty = (e, productId) => {
+        e.stopPropagation()
+        console.log("decrease", productId)
+        if (!isLoggedIn) {
+            const updatedGuestCart = guestCart.map(item => {
+                if (item.productId === productId) {
+                    return {
+                        ...item,
+                        quantity: Math.max(1, item.quantity - 1)
+                    }
+                }
+                return item
             });
-            dispatch(cartCount(product?.length || 0))
-            setData([{ items }])
-            console.log("result is", [{ items }])
-        } catch (error) {
-            console.log(error.response?.data?.message)
+            setGuestCart(updatedGuestCart)
+            localStorage.setItem(
+                "guestCart",
+                JSON.stringify(updatedGuestCart)
+            );
+            return
+        }
+        else {
+            decreaseQtyMutation.mutate(productId)
         }
     }
 
-    //----LOGIN USER-----///
 
-    const fetchData = async () => {
-        try {
-            const response = await api.get("/cart/cartItems")
-            console.log(response.data.result[0].items.length)
-            const result = response.data?.result || []
-            setData(result)
-            dispatch(cartCount(result[0]?.items?.length || 0))
-            // refreshCartCount()
-        } catch (error) {
+    const removeItem = useMutation({
+        mutationFn: removeLoginItem,
+        onSuccess: (data) => {
+            console.log("remove item", data);
+            queryClient.invalidateQueries({
+                queryKey: ['cart']
+            })
+        },
+        onError: (error) => {
             console.log(error.response?.data?.message)
         }
+    })
+
+    const handleRemoveItem = (productId) => {
+        console.log("remove item:", productId)
+        dispatch(SetselectedItems(
+            selectedIds.filter(item => item !== productId)
+        ))
+        if (!isLoggedIn) {
+            const updatedCart = guestCart.filter(item =>
+                item.productId !== productId
+            )
+            setGuestCart(updatedCart)
+            localStorage.setItem("guestCart", JSON.stringify(updatedCart))
+            return
+        }
+
+        removeItem.mutate(productId)
+
+
     }
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            fetchData(); // logged-in user ka DB cart
-        } else {
-            guestData(); // guest ka localStorage cart
+    const removeAllLoginMutation = useMutation({
+        mutationFn: removeAllLoginItem,
+        onSuccess: (data) => {
+            console.log("remove all cartitems", data)
+            queryClient.invalidateQueries({
+                queryKey: ['cart']
+            })
+        },
+        onError: (error) => {
+            console.log(error.response?.data?.message)
         }
-    }, [isLoggedIn]);
+    })
+
+    const removeAllcartItems = () => {
+        dispatch(ClearSelectedItems())
+        if (!isLoggedIn) {
+            localStorage.removeItem("guestCart")
+            setGuestCart([])
+            return
+        }
+        removeAllLoginMutation.mutate();
+    }
+
+
 
     const getItemTotal = (priceparam, quantity) => {
         const qty = quantity || 1
@@ -84,228 +215,131 @@ function Cart() {
             : total
     }
 
-    const increaseQty = async (e, productId) => {
-        e.stopPropagation()
 
-        const accessToken = localStorage.getItem("accessToken")
-        if (!accessToken) {
-            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
-            const updatedGuestCart = guestCart.map(item => {
-                if (item.productId === productId) {
-                    return {
-                        ...item,
-                        quantity: item.quantity + 1
-                    }
-                }
-                return item
-            });
-            localStorage.setItem(
-                "guestCart",
-                JSON.stringify(updatedGuestCart)
-            );
-            // setData(prev =>
-            //     prev.map(cart => ({
-            //         ...cart,
-            //         items: cart.items.map(item =>
-            //             item.product._id === productId ?
-            //                 {
-            //                     ...item,
-            //                     quantity: item.quantity + 1
-            //                 } : item
-            //         )
-            //     }))
-            // )
-            guestData()
-            return
-        }
-        // -------LoginUser increaseQty-----//
-        else {
-            try {
-                const response = await api.patch("/cart/increaseQty", { productId })
-                // console.log(response.data)
-                // setData(prev =>
-                //     prev.map(cart => ({
-                //         ...cart,
-                //         items: cart.items.map(item =>
-                //             item.product._id === productId ?
-                //                 {
-                //                     ...item,
-                //                     quantity: response.data.cartItem.quantity
-                //                 }
-                //                 : item
-                //         )
-                //     })
-                //     )
-                // )
-                fetchData()
-            } catch (error) {
-                console.log(error.response?.data?.message)
-            }
-        }
-    }
-    const decreaseQty = async (e, productId) => {
-        e.stopPropagation()
-
-        const accessToken = localStorage.getItem("accessToken")
-        if (!accessToken) {
-            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
-            const updatedGuestCart = guestCart.map(item => {
-                if (item.productId === productId) {
-                    return {
-                        ...item,
-                        quantity: item.quantity - 1
-                    }
-                }
-                return item
-            });
-            localStorage.setItem(
-                "guestCart",
-                JSON.stringify(updatedGuestCart)
-            );
-
-            // setData(prev =>
-            //     prev.map(cart => ({
-            //         ...cart,
-            //         items: cart.items.map(item =>
-            //             item.product._id === productId
-            //                 ? {
-            //                     ...item,
-            //                     quantity: item.quantity - 1
-            //                 }
-            //                 : item
-            //         )
-            //     }))
-            // );
-            guestData()
-            return
-        }
-
-        // -------LoginUser DecreaseQty-----//
-        try {
-            const response = await api.patch("/cart/decreaseQty", { productId })
-            // console.log(response.data.cartItems)
-            // setData(prev =>
-            //     prev.map(cart => ({
-            //         ...cart,
-            //         items: cart.items.map(cartitem =>
-            //             cartitem.product._id === productId ?
-            //                 {
-            //                     ...cartitem,
-            //                     quantity: response.data.cartItems.quantity
-            //                 } :
-            //                 cartitem
-            //         )
-            //     }))
-            // )
-            fetchData()
-        } catch (error) {
-            console.log(error.response?.data?.message)
-        }
-    }
-    const subtotal = data[0]?.items
-        .filter((items) => selectedItems.includes(items.product._id))
+    const subtotal = cartItems
+        .filter((items) => selectedIds.includes(items.product._id))
         .reduce((acc, item) => acc + getItemFinalPrice(
             item.product.discount,
             item.quantity,
             item.product.price
         ), 0)
-    // only selected items are counted
-    // console.log("selectedItems:", selectedItems)
 
-    const removeItem = async (productId) => {
+    // console.log(cartItemsCount)
+    // console.log("selectedItems", selectedIds)
 
-        const accessToken = localStorage.getItem("accessToken")
-        if (!accessToken) {
+    // set total CartItems Quantity in the  redux dispatch
+    const count = cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+    )
 
-            const guestCart = JSON.parse(localStorage.getItem("guestCart")) || []
-            const removeGuestItem = guestCart.filter(item =>
-                item.productId !== productId
-            )
-            localStorage.setItem("guestCart", JSON.stringify(removeGuestItem))
+    useEffect(() => {
+        dispatch(cartCount(count))
+    }, [count, dispatch])
 
-            guestData()
-            return
-        }
-        // ---------------Login user removeitem--------------//
-        try {
-            await api.delete("/cart/removeItem", { data: { productId } })
+    //get total items from the redux to show in the cart
+    const totalItems = useSelector(state => state.cart.count)
+    // console.log(totalItems)
 
-            fetchData()
+    //map cartItems to give full selected products
+    const selectedProduct = cartItems.filter(item => {
+        return selectedIds.includes(item.product._id)
+    })
+    // console.log("selectedProduct", selectedProduct)
 
-        } catch (error) {
-            console.log(error.response?.data?.message)
-        }
-    }
+    // selcted items quantity count
+    const selectedItemsCount = selectedProduct.reduce(
+        (total, item) => total + item.quantity,
+        0
+    )
 
-    const removeAllcartItems = async () => {
-        const accessToken = localStorage.getItem("accessToken")
-        if (!accessToken) {
-            localStorage.removeItem("guestCart")
-            guestData()
-            return
-        }
-        // -------login User remove all items--------//
-        try {
-            const response = await api.delete("/cart/removeAllcartItems")
-            console.log(response.data)
-            fetchData()
-        } catch (error) {
-            console.log(error.response?.data?.message)
-        }
-    }
-
-    const handleCheckOut = async () => {
-        const accessToken = localStorage.getItem("accessToken")
-        if (!accessToken) {
+    const handleCheckOut = () => {
+        if (!isLoggedIn) {
             setShowLoginPopup(true)
+
+        }
+        else {
+            if (selectedIds.length === 0) {
+                toast.current.show({
+                    severity: "warn",
+                    summary: "Select Item",
+                    detail: "Please select at least one item first.",
+                    life: 3000
+                });
+
+                return;
+            }
+            else {
+                navigate("/checkout")
+            }
+
         }
     }
-    const cartItems = useSelector(state => state.cart.count)
-    console.log(cartItems)
+
+    // console.log(cartItems)
+    const onClose = () => {
+        setShowLoginPopup(false)
+    }
+
     return (
         <div className={style.container}>
+            <Toast className={style.toast} ref={toast} />
             <div className={style.cartWrapper}>
                 <div className={style.Title}>
-                    <h1>Shopping Cart {cartItems}</h1>
+                    <h1>Shopping Cart {totalItems}</h1>
                 </div>
-                {data[0]?.items?.length > 0 && <div className={style.selectDeselectAll}>
+                {cartItems?.length > 0 && <div className={style.selectDeselectAll}>
                     <label> <input name="select" type="checkbox" checked={
-                        data[0]?.items?.length > 0 &&
-                        data[0]?.items.every(item =>
-                            selectedItems.includes(item.product._id)
+                        cartItems?.length > 0 &&
+                        cartItems.every(item =>
+                            selectedIds.includes(item.product._id)
                         )
                     }
                         onChange={(e) => {
                             if (e.target.checked) {
-                                setSelectedItems(data[0].items.map(item => item.product._id))
+                                dispatch(SetselectedItems(
+                                    cartItems.map(items => {
+                                        return items.product._id
+                                    })
+
+                                ))
                             }
                             else {
-                                setSelectedItems([])
+                                dispatch(ClearSelectedItems())
+
                             }
                         }}
                     />Select all items</label>
 
                 </div>}
-                {data[0]?.items?.length > 0 ? (
+                {cartItems?.length > 0 ? (
 
                     <div className={style.cartitemsContainer}>
                         <div className={style.cartitemsWrapper}>
                             <div className={style.itemListBox}>
                                 <div className={style.itemsList}>
 
-                                    {data[0]?.items?.map((item) => (
+                                    {cartItems.map((item) => (
 
-                                        <div className={style.card} >
+                                        <div key={item.product._id} className={style.card} >
                                             <div className={style.cardtop}>
                                                 <input onClick={(e) => e.stopPropagation()} className={style.select} name="select"
-                                                    checked={selectedItems.includes(item.product._id)}
+                                                    checked={selectedIds.some(itemId => itemId === item.product._id)}
+
                                                     onChange={(e) => {
                                                         if (e.target.checked) {
-                                                            setSelectedItems(prev => [...prev, item.product._id])
+                                                            dispatch(
+                                                                SetselectedItems([
+                                                                    ...selectedIds,
+                                                                    item.product._id
+                                                                ])
+                                                            );
                                                         }
                                                         else {
-                                                            setSelectedItems(prev =>
-                                                                prev.filter(id => id !== item.product._id))
+
+                                                            dispatch(SetselectedItems(
+                                                                selectedIds.filter(selectedItem => selectedItem !== item.product._id)))
+
                                                         }
                                                     }
                                                     }
@@ -313,7 +347,7 @@ function Cart() {
                                                 <i className={`pi pi-times ${style.deleteItem}`}
                                                     onClick={(e) => {
                                                         e.stopPropagation();
-                                                        removeItem(item.product._id)
+                                                        handleRemoveItem(item.product._id)
                                                     }}></i>
                                             </div>
                                             <div className={style.itemWrapper}>
@@ -345,12 +379,9 @@ function Cart() {
                                                             <i className={"pi pi-plus "}> </i>
                                                         </button>
                                                     </span>
-
                                                 </div>
-
                                             </div>
                                         </div>
-
                                     ))
                                     }
                                 </div>
@@ -365,7 +396,13 @@ function Cart() {
                             <div className={style.checkoutBoxWrapper}>
                                 <div className={style.checkoutBox}>
                                     <div className={style.coupon}>
-                                        <h3 className={style.couponTitle}>Hava a coupon?</h3>
+                                        <h3 className={style.couponTitle}>Order summary ({selectedItemsCount}) items</h3>
+                                        <div className={style.selectedItemsImg}>
+                                            {selectedProduct?.map(item => (
+                                                <img key={item.product._id} src={item.product.image} alt="" />
+
+                                            ))}
+                                        </div>
                                         <form>
                                             <input className={style.coupon} type="text" placeholder="Add a Coupon?" />
                                             <button className={style.applyBtn} type="submit">Apply</button>
@@ -392,7 +429,15 @@ function Cart() {
                                             <img className={style.Cardsimg} src="/itemsummarypage/applepay.png" alt="" />
                                         </span>
                                     </div>
-                                    {showLoginPopup && (<LoginPopup onLogin={() => setIsLoggedIn(true)} onClose={() => setShowLoginPopup(false)} />)}
+                                    {showLoginPopup && (
+                                        <div className={style.overlay} >
+                                            <div className={style.popupWrapper}>
+                                                <span className={style.removePopup}><i onClick={onClose} className="pi pi-times"></i></span>
+                                                <Signin redirectTo="/cart" onClose={onClose} />
+                                            </div>
+                                        </div>
+
+                                    )}
                                 </div>
                             </div>
                         </div>

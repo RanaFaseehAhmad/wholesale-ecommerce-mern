@@ -11,7 +11,18 @@ body {
 .container {
     background: #F7FAFC;
 }
-
+.toast :global(.p-toast-message) {
+    padding: 15px 20px;
+}
+.toast :global(.p-toast-message) {
+    padding: 15px 20px;
+}
+.toast :global(.p-toast-message-icon) {
+    margin-right: 10px;
+}
+.toast :global(.p-toast-message-icon) {
+    font-size: 16px;
+}
 .cartWrapper {
     margin: 0 40px;
     padding: 0 60px;
@@ -269,8 +280,9 @@ body {
 }
 
 .couponTitle {
-    font-size: 0.9rem;
-    color: #666666;
+    font-size: 1rem;
+    color: black;
+    font-size: 700;
 }
 
 form {
@@ -285,6 +297,18 @@ form {
     outline: none;
     padding: 5px;
     flex: 1;
+}
+.selectedItemsImg{
+     display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0;
+}
+.selectedItemsImg img{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .applyBtn {
@@ -395,6 +419,54 @@ form {
 
 .startshoppingBtn {
     display: none;
+}
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    /* Back window blur */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    padding: 20px;
+}
+.popupWrapper{
+     width: 100%;
+    max-width: 430px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+    border-radius: 14px;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    animation: popupOpen 0.2s ease-out;
+}
+.removePopup{
+     color: white;
+    background-color: red;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media(max-width:1224px) {

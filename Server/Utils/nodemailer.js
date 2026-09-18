@@ -7,18 +7,13 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 })
-export async function sendEmail(to, subject, otp) {
+export async function sendEmail(to, subject,html) {
     try {
         await transporter.sendMail({
             from: `CityStore-Site <${process.env.EMAIL_USER}>`,
             to,
             subject,
-            html: `
-                    <h2>Password Reset Otp</h2>
-                    <p>Your OTP is:</p>
-                    <h1>${otp}</h1>
-                    <p>This OTP expires in 10 minutes.</p>
-                `
+            html
         })
         console.log("Email sent successfully");
     }

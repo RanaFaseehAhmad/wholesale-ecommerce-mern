@@ -1,68 +1,46 @@
 import style from "./SectionSix.module.css"
-import api from "../../Api/Axios"
+import { fetchProducts } from "../../Api/productApi.js";
 import { useNavigate } from "react-router-dom"
-import { useRef, useState, useEffect, useCallback } from "react"
+import { useRef, useEffect } from "react"
+import { useInfiniteQuery } from "@tanstack/react-query";
+
 
 function SectionSix() {
-    const [product, setProduct] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [cursor, setCursor] = useState(null)
-    const [hasMore, setHasMore] = useState(true)
     const loaderRef = useRef(null)
-    const loadingRef = useRef(false);
     const navigate = useNavigate();
 
 
     const selectItem = (id) => {
         navigate(`/itemsummary/${id}`);
     }
-
-    const fetchproducts = useCallback(async () => {
-        if (loadingRef.current || !hasMore) return;
-
-        loadingRef.current = true;
-        setLoading(true)
-        try {
-            const url = cursor ? `/products?cursor=${cursor}` :
-                `/products`
-            const response = await api.get(url)
-            // console.log(response.data)
-            const newData = response.data.products
-            setProduct((prev) => [
-                ...prev,
-                ...newData
-            ])
-            // console.log("products are :", newData)
-
-            setCursor(response.data.nextCursor)
-            // console.log("Next cursor:", response.data.nextCursor)
-            if (!response.data.nextCursor) {
-                setHasMore(false)
-            }
-        } catch (error) {
-            console.log(error.response?.data)
+    const { data, hasNextPage, isFetchingNextPage, fetchNextPage, initialPageParam } = useInfiniteQuery({
+        queryKey: ["Products"],
+        queryFn: fetchProducts,
+        initialPageParam: null,
+        getNextPageParam: (lastPage) => {
+            return lastPage.nextCursor ?? undefined
         }
-        finally {
-            loadingRef.current = false;
-            setLoading(false)
-        }
-    }, [cursor])
+    })
+    const products = data?.pages.flatMap(page => page.products) ?? []
 
-    useEffect(() => {
-        fetchproducts()
-    }, [])
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                fetchproducts()
-            }
+            if (entries[0].isIntersecting &&
+                !isFetchingNextPage &&
+                hasNextPage
+            )
+                fetchNextPage()
         })
-        observer.observe(loaderRef.current)
+        const loader = loaderRef.current;
+
+        if (loader) {
+            observer.observe(loader);
+        }
         return () => {
             observer.disconnect();
         };
-    }, [fetchproducts])
+    }, [isFetchingNextPage, hasNextPage, fetchNextPage])
 
 
     return (
@@ -70,10 +48,8 @@ function SectionSix() {
         <div className={style.SectionRecommended}>
             <h1 className={style.title}>Recommended items</h1>
             <div className={style.RecommendedItems}>
-
-                {/* map go here */}
                 {
-                    product.map((item) => (
+                    products.map((item) => (
 
                         <div key={item._id} className={style.RecommendedItem}
                             onClick={() => selectItem(item._id)}

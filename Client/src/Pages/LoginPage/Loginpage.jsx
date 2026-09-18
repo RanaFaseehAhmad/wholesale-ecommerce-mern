@@ -4,29 +4,17 @@ import 'primeicons/primeicons.css';
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useForm, Controller } from "react-hook-form"
-import { signInSchema, createBuyerSchema } from "../../ReactFormSchema/schema.js"
+import { createBuyerSchema } from "../../ReactFormSchema/schema.js"
 import { yupResolver } from '@hookform/resolvers/yup';
 import siteimage from "./siteimage.avif";
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
-import {loginStart,loginSuccess } from "../../Features/auth/authSlice.js";
-import { useDispatch  } from "react-redux";
+import Signin from "../../Components/SignIn/Signin.jsx";
+import { useState } from "react";
 
 function Loginpage() {
-    const dispatch= useDispatch()
-    const [showPassword, setShowPassword] = useState(false)
-
     const navigate = useNavigate();
     const search = useLocation();
-
-    const signInForm = useForm({
-        defaultValues: {
-            email: "",
-            password: ""
-        },
-        mode: "onBlur",
-        resolver: yupResolver(signInSchema)
-    })
+    const [showPassword, setShowPassword] = useState(false)
     const createBuyerAccForm = useForm({
         defaultValues: {
             name: "",
@@ -42,45 +30,12 @@ function Loginpage() {
         mode: "onChange",
         resolver: yupResolver(createBuyerSchema)
     })
-    const email = signInForm.getValues("email")
-
-
-
-    const handleLoginForm = async (data) => {
-        try {
-            dispatch(loginStart())
-            const response = await api.post("/auth/signIn", { email: data.email, password: data.password })
-            console.log(response.data)
-            localStorage.setItem("accessToken", response.data.accessToken)
-            localStorage.setItem("refreshToken", response.data.refreshToken)
-
-            dispatch(loginSuccess(response.data.user))
-            
-            if (response.status === 200) {
-                navigate("/")
-            }
-        } catch (error) {
-            const serverError = error.response?.data
-            if (serverError?.email) {
-                signInForm.setError("email", {
-                    type: "server",
-                    message: serverError.email
-                })
-            }
-            if (serverError?.password) {
-                signInForm.setError("password", {
-                    type: "server",
-                    message: serverError.password
-                })
-            }
-        }
-
-    }
     const handleCreatebuyerAccount = async (data) => {
         // console.log(data)
         try {
             const response = await api.post("/auth/register",
                 { name: data.name, email: data.email, city: data.city, password: data.password, phone: data.phone, countryCode: data.countryCode, dialCode: data.dialCode, role: data.role })
+           
             console.log(response.data)
             if (response.status === 200) {
                 navigate("/login/signIn")
@@ -103,6 +58,7 @@ function Loginpage() {
             }
         }
     }
+
     return (
         <div>
             <div className={style.containerMain}>
@@ -132,37 +88,7 @@ function Loginpage() {
                         )
                         }
                         {search.pathname === "/login/signIn" && (
-                            <div className={style.signIn}>
-                                <h1>Sign in</h1>
-                                <form onSubmit={signInForm.handleSubmit(handleLoginForm)} className={style.emailLoginForm}>
-                                    <input className={style.signInEmailField} type="email" placeholder='Enter Your email' {...signInForm.register("email")} />
-                                    {signInForm.formState.errors.email && (<span className={style.error}> {signInForm.formState.errors.email.message}</span>)}
-                                    <div className={style.passwordWrapper}>
-                                        <input type={showPassword ? "text" : "password"} placeholder='Enter Your Pasword' {...signInForm.register("password")} />
-                                        <button type="button" className={style.passwordToggle} onClick={() => setShowPassword(prev => !prev)}
-                                            aria-label={showPassword ? "Hide password" : "Show password"}>
-                                            <i className={`pi ${showPassword ? "pi-eye-slash" : "pi-eye"}`} />
-                                        </button>
-                                    </div>
-                                    {signInForm.formState.errors.password && (<span className={style.error}> {signInForm.formState.errors.password.message}</span>)}
-                                    <span className={style.forgotPass} onClick={() => {
-                                        const url = email
-                                            ? `/login/forgotPassword?query=${encodeURIComponent(email)}`
-                                            : "/login/forgotPassword";
-                                        navigate(url)
-                                    }}>Forgot Password?</span>
-                                    <button className={style.loginBtn} type="submit">Login</button>
-                                </form>
-                                <p>OR</p>
-                                <div className={style.directSigninBtnWrapper}>
-                                    <button className={style.socialBtn}><i className="pi pi-google"></i>Continue with Google</button>
-                                    <button className={style.socialBtn}><i className="pi pi-facebook"></i>Continue with Facebook</button>
-                                    <button className={style.socialBtn}><i className="pi pi-linkedin"></i>Continue with Linkedln</button>
-                                </div>
-                                <div className={style.createAccountLink}>
-                                    <span>New to Site? <span onClick={() => navigate("/login/create-account")}>Create an account</span></span>
-                                </div>
-                            </div>
+                            <Signin />
                         )}
 
                         {search.pathname === "/login/create-account" && (
@@ -212,7 +138,14 @@ function Loginpage() {
                                         {createBuyerAccForm.formState.errors.email && (<span className={style.error}>{createBuyerAccForm.formState.errors.email.message}</span>)}
                                         <input type="text" placeholder="Enter your city" {...createBuyerAccForm.register("city")} />
                                         {createBuyerAccForm.formState.errors.city && (<span className={style.error}>{createBuyerAccForm.formState.errors.city.message}</span>)}
-                                        <input type="password" placeholder="Enter your password" {...createBuyerAccForm.register("password")} />
+                                        {/* <input type="password" placeholder="Enter your password" {...createBuyerAccForm.register("password")} /> */}
+                                        <div className={style.passwordWrapper}>
+                                            <input type={showPassword ? "text" : "password"} placeholder='Enter Your Pasword' {...createBuyerAccForm.register("password")} />
+                                            <button type="button" className={style.passwordToggle} onClick={() => setShowPassword(prev => !prev)}
+                                                aria-label={showPassword ? "Hide password" : "Show password"}>
+                                                <i className={`pi ${showPassword ? "pi-eye-slash" : "pi-eye"}`} />
+                                            </button>
+                                        </div>
                                         {createBuyerAccForm.formState.errors.password && (<span className={style.error}>{createBuyerAccForm.formState.errors.password.message}</span>)}
                                         <Controller
                                             name="phone"

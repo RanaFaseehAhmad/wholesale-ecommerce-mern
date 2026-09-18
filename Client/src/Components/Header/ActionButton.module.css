@@ -1,25 +1,75 @@
 .action {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+    height: 48px;
+}
+
+
+.deliverToLink {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 228px;
-    height: 41px;
-}
+    gap: 2px;
+    min-width: 55px;
 
-.action a {
-    display: flex;
-    align-items: center;
-}
-
-.action img {
-    width: 37px;
-    height: 41px;
-    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
 }
 
 .actionLink {
     text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.deliverText {
+    font-size: 11px;
+    color: #666;
+    line-height: 1;
+
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 18px;
+}
+
+.countryCode {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #222;
+    line-height: 1;
+}
+
+.countryCode {
+    font-size: 12px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1;
+}
+
+.flag {
+    width: 18px;
+    height: 13px;
+    object-fit: cover;
+}
+
+.countryCode:hover {
+    color: #f59e0b;
 }
 
 .colorcartIcon {
@@ -44,7 +94,13 @@
 }
 
 .actionIcon {
-    color: black;
+    color: #222;
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.actionLink:hover .actionIcon {
+    color: #f59e0b;
 }
 
 .LoginRegister:hover .userDropdown {
@@ -52,27 +108,27 @@
 
 }
 
-
-/* .heartIcon:hover {
-    color: red
-} */
-
 .simplecartItems {
-    color: #666666;
+    color: #666;
+    font-size: 12px;
+    margin: 0 0 0 3px;
 }
 
 .cartItems {
+    position: absolute;
+    top: -2px;
+    right: -2px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    margin-left: 2px;
-    font-size: 0.8rem;
-    background-color: orange;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: #f59e0b;
     border-radius: 20px;
     color: white;
-
 }
 
 .LoginRegister::after {
@@ -100,13 +156,24 @@
 
     display: none;
     z-index: 1000;
+    animation: fadeSlideIn 0.15s ease-out;
+}
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .userName {
     margin: 5px 0;
     border-bottom: 1px solid #999999;
     font-size: 13px;
-    text-align: center;
+    text-align: left;
     position: relative;
     width: 100%;
     min-height: 44px;
@@ -120,7 +187,7 @@
 
 .dropdownItem {
     width: 100%;
-    min-height: 44px;
+    min-height: 40px;
 
     display: flex;
     align-items: center;
@@ -135,6 +202,7 @@
     cursor: pointer;
     font-size: 14px;
     text-align: left;
+    transition: background-color 0.15s ease;
 }
 
 .dropdownItem:hover {

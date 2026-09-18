@@ -1,4 +1,5 @@
 import style from "./ActionButton.module.css"
+import ReactCountryFlag from "react-country-flag";
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, } from "../../Features/auth/authSlice.js";
@@ -12,14 +13,38 @@ function ActionButton() {
         localStorage.removeItem("accessToken")
         localStorage.removeItem("refreshToken")
         dispatch(cartCount(0))
+
     }
     const user = useSelector(state => state.auth.user);
     const isloggedin = useSelector(state => state.auth.isAuthenticated)
     const cartItems = useSelector(state => state.cart.count)
-    console.log(isloggedin)
+    // console.log(isloggedin)
+    console.log("navbar:", cartItems)
+
+
+    const countryCode = useSelector((state) => state.auth.countryCode)
+    console.log("countryCode", countryCode)
     return (
         <div>
             <div className={style.action}>
+
+                <Link to="/" className={`${style.actionLink} ${style.deliverToLink}`}>
+                    <span className={style.deliverText}>Deliver To:</span>
+<div>
+
+                    {countryCode && (
+                        <ReactCountryFlag
+                            countryCode={countryCode.toUpperCase()}
+                            svg
+                            className={style.flag}
+                            />
+                        )}
+
+                    <span className={style.countryCode}>
+                        {countryCode?.toUpperCase()}
+                    </span>
+                        </div>
+                </Link>
 
                 <Link to="/" className={style.actionLink}>
                     <i className={`pi pi-inbox ${style.actionIcon}`}></i>

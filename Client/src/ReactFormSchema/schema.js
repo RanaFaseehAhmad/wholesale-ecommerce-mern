@@ -65,3 +65,49 @@ export const resetPasswordSchema = yup.object({
         .required("Password is required")
         .min(8, "Password must be at least 8 characters")
 })
+export const shippingAddressSchema = yup.object({
+    fullName: yup
+        .string()
+        .trim()
+        .required("Name is required")
+        .matches(
+            /^[a-zA-Z\s]+$/,
+            "Name cannot contain numbers or special characters"
+        ),
+    country: yup
+        .string()
+        .required("Country/Region is required"
+        ),
+    state: yup
+        .string()
+        .required("State/Province is required"
+        ),
+    streetAddress: yup
+        .string()
+        .required("StreetAddress is required"
+        ),
+    apartment: yup
+        .string()
+        .required("Apartment, unit,suit, building is required"
+        ),
+
+    city: yup
+        .string()
+        .trim()
+        .required("city name is required")
+        .matches(
+            /^[a-zA-Z\s]+$/,
+            "city cannot contain numbers or special characters"
+        ),
+    postalCode: yup
+        .string()
+        .required("Postal code is required")
+        .matches(/^\d+$/, "Postal code must contain only numbers"
+
+        ),
+    phone: yup
+        .string()
+        .required("Phone number is required"
+        )
+
+})

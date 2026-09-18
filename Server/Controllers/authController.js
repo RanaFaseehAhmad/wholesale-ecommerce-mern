@@ -1,4 +1,5 @@
 import User from "../Models/userSchema.js";
+import Cart from "../Models/cartSchema.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { sendEmail } from "../Utils/nodemailer.js"
@@ -117,7 +118,11 @@ export async function forgetPass(req, res) {
         await sendEmail(
             user.email,
             "Password Reset OTP",
-            otp
+            `
+    <h2>Password Reset</h2>
+    <p>Your OTP is:</p>
+    <h1>${otp}</h1>
+  `
         );
 
         return res.status(200).json({
@@ -239,10 +244,21 @@ export async function refreshToken(req, res) {
 export async function getCurrentUser(req, res) {
     try {
         const user = await User.findById(req.user._id).select("-passowrd")
+        // if (!user) {
+
         return res.status(200).json({
-            message: "user found",
+            message: "user  found",
             user
         })
+        // }
+        // else {
+        // const cart = await Cart.findById(req.user._id)
+
+        //     return res.status(200).json({
+        //         message: "user found and successfuly get current user cart",
+        //         result: cart
+        //     })
+        // }
     } catch (error) {
         console.log(error)
         res.status(500).json({
@@ -250,3 +266,4 @@ export async function getCurrentUser(req, res) {
         })
     }
 }
+

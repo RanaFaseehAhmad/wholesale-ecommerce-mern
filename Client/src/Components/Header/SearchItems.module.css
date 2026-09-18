@@ -1,57 +1,71 @@
 .searchContainer {
-  position: relative;
-   border-radius: 18px;
-   width: 100%;
-   max-width: 300px;
-}
-.searchContainer:hover{
-  box-shadow: 0 3px 8px rgba(237, 137, 7, 0.849);
-
-}
-
-.searchBox {
-  background-color: white;
-  border: 2px solid rgb(255, 106, 0);
-  border-radius: 18px;
-  padding: 15px;
+ position: relative;
+  border-radius: 24px;
   width: 100%;
+  max-width: 300px;
+}
+.searchBox {
+    background-color: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 24px;
+  padding: 6px 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.searchBox:focus-within {
+  border-color: rgba(237, 137, 7, 0.849);
+  box-shadow: 0  3px 8px rgba(237, 137, 7, 0.849);
 }
 
-
+.searchIcon {
+  color: #9AA0A6;
+  font-size: 14px;
+}
 .inputField {
-  border-radius: 18px;
+   border-radius: 24px;
   outline: none;
   border: none;
-  padding: 5px;
+  padding: 6px 2px;
   width: 100%;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 .dropDown {
   background: white;
   overflow: hidden;
-  border-radius: 18px;
   overflow-y: auto;
   max-height: 250px;
   position: absolute;
+   top: calc(100% + 6px);
   z-index: 9999;
-  width: 300px;
+  width: 100%;
+  min-width: 300px;
   scrollbar-width: none;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+   border: 1px solid #F0F0F0;
+
+   border-radius: 12px;
 }
 
 .searchSuggestions {
-  padding: 10px;
+   padding: 6px;
   list-style-type: none;
 }
 
 .listSuggestions {
-  padding: 8px;
+    padding: 10px 12px;
   cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
 }
 
 .listSuggestions:hover {
-  background-color: #f0f1f4;
+   background-color: #F5F6F8;
 }
 
 @media (max-width:300px) {

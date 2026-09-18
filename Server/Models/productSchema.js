@@ -4,7 +4,8 @@ const productSchema = new mongoose.Schema({
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        default: null
+        default: null,
+        index:true
     },
     productName: {
         type: String
@@ -33,11 +34,13 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Category"
+        ref: "Category",
+        index:true
     },
     subcategory: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Subcategory"
+        ref: "Subcategory",
+        index: true
     },
     reviews:[ {
         type: mongoose.Schema.Types.ObjectId,

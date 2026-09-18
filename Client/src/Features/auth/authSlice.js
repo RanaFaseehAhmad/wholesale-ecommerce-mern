@@ -4,6 +4,7 @@ const initialState = {
     user: null,
     isAuthenticated: false,
     loading: false,
+    countryCode:null
 };
 const authSlice = createSlice({
     name: "auth",
@@ -27,10 +28,12 @@ const authSlice = createSlice({
             state.isAuthenticated = true;
             state.loading = false;
             state.user = action.payload
+        },
+        setCountryCode: (state, action) => {
+            state.countryCode = action.payload
         }
-
     }
 
 });
-export const { loginStart, loginSuccess, logOut, initializeAuth } = authSlice.actions;
+export const { loginStart, loginSuccess, logOut, initializeAuth, setCountryCode } = authSlice.actions;
 export default authSlice.reducer;

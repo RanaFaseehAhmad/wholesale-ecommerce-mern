@@ -1,0 +1,486 @@
+/* Checkout.module.css */
+
+* {
+    box-sizing: border-box;
+}
+.toast :global(.p-toast-message) {
+    padding: 15px 20px;
+}
+.toast :global(.p-toast-message) {
+    padding: 15px 20px;
+}
+.toast :global(.p-toast-message-icon) {
+    margin-right: 10px;
+}
+.toast :global(.p-toast-message-icon) {
+    font-size: 16px;
+}
+
+.header {
+    width: 100%;
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Main */
+
+.mainContainer {
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    background: #ffffff;
+    padding: 35px 50px 60px;
+}
+
+.mainContainer>h1 {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto 25px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Two column layout */
+
+.container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* =========================
+   LEFT SECTION
+========================= */
+.errors{
+    color: red;
+font-size: 0.8rem;
+}
+.errorBorder{
+    border: 1px solid red!important;
+}   
+.leftSection {
+    background: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.leftSectionTitle {
+    min-height: 65px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.leftSectionTitle i {
+    color: #222;
+    font-size: 20px;
+}
+
+.leftSectionTitle h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Form wrapper */
+
+.formWrapper {
+    padding: 24px;
+}
+
+/* Secure information */
+
+.protectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    padding: 11px 14px;
+    background: #f7f8fa;
+    border-radius: 3px;
+}
+
+.protectionTitle i {
+    color: #555;
+    font-size: 15px;
+}
+
+.protectionTitle p {
+    margin: 0;
+    color: green;
+    font-size: 13px;
+}
+
+/* Form */
+
+.addressForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: none;
+}
+
+/* Inputs + select */
+
+.addressForm input,
+.addressForm select {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #cfcfcf;
+    border-radius: 13px;
+    background: #ffffff;
+    padding: 0 13px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.addressForm input::placeholder {
+    color: #999;
+}
+
+.addressForm input:focus,
+.addressForm select:focus {
+    border-color: #222;
+}
+
+/* Country select */
+
+.addressForm select {
+    cursor: pointer;
+    appearance: auto;
+}
+
+
+/* Phone input */
+
+.phoneContainer {
+    width: 100% !important;
+    height: 46px !important;
+    border-radius: 13px !important;
+    border: none;
+}
+
+.phoneInput {
+    width: 100% !important;
+    height: 46px !important;
+    border: 1px solid #cfcfcf !important;
+    border-radius: 13px !important;
+    font-size: 14px !important;
+    padding-left: 52px !important;
+    color: #333 !important;
+}
+
+.phoneInput:focus {
+    border-color: #222 !important;
+    border-radius: 13px !important;
+}
+
+.countryButton {
+    border-radius: 13px 0 0 13px !important;
+
+}
+
+.countryButton :global(.selected-flag),
+.countryButton :global(.selected-flag:hover),
+.countryButton :global(.selected-flag:focus) {
+    border-radius: 13px 0 0 13px !important;
+}
+
+/* Submit */
+
+.addressForm button {
+    width: 100%;
+    height: 48px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 13px;
+    background: #ff6a00;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.addressForm button:hover {
+    background: #e85f00;
+}
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.rightSection {
+    background: #ffffff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+.rightSectionTitle {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.rightSectionTitle h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: #222;
+}
+
+.orderSummaryWrapper {
+    padding: 22px;
+}
+
+/* =========================
+   SUBTOTAL
+========================= */
+
+.itemTotal {
+    color: #333;
+}
+
+.subtotalWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.subtotalWrapper span {
+    font-size: 14px;
+}
+
+.subtotalWrapper span:last-child {
+    font-weight: 500;
+}
+
+/* =========================
+   PAYMENT PROCESSING
+========================= */
+
+.paymentProcessingWrapper {
+    padding: 17px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.paymentProcessingBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paymentProcessingBlock span {
+    font-size: 14px;
+}
+
+.paymentProcessingDetail {
+    margin-top: 12px;
+    padding-left: 15px;
+    border-left: 2px solid #eeeeee;
+}
+
+.PaymentProcessingFee,
+.paymentProcFeeDiscount {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 9px;
+}
+
+.PaymentProcessingFee span,
+.paymentProcFeeDiscount span {
+    font-size: 12px;
+    color: #777;
+}
+
+.discountColor {
+    color: red !important;
+}
+
+/* =========================
+   TOTAL
+========================= */
+
+.totalAmountWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.totalAmountWrapper>span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #666;
+}
+
+.totalAmount {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 5px;
+}
+
+.totalAmount p {
+    margin: 0;
+}
+
+.totalAmount p:first-child {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.totalAmount p:nth-child(2) {
+    font-size: 13px;
+    color: #16a34a;
+}
+
+.totalAmount p:nth-child(3) {
+
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+.totalAmount p:last-child {
+    font-size: 10px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* =========================
+   ORDER PROTECTION
+========================= */
+
+.orderProtectionDetailWrapper {
+    padding-top: 22px;
+}
+
+.orderProtectionTitle {
+    margin: 0 0 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
+
+.securePaymentSection,
+.guaranteedDeliverySection,
+.refundPolicySection {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.iconHeadingWrapper{
+    display: flex;
+}
+.iconHeadingWrapper i {
+    flex-shrink: 0;
+    width: 22px;
+    padding-top: 2px;
+    font-size: 17px;
+    color: #333;
+}
+
+.iconHeadingWrapper h3 {
+    margin: 0 0 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.securePaymentDETAIL,
+.guaranteedDeliveryDetail,
+.refundPolicyDetail {
+    flex: 1;
+}
+
+
+.securePaymentSection p,
+.guaranteedDeliverySection p,
+.refundPolicySection p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #777;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    .mainContainer {
+        padding: 25px 20px 40px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .rightSection {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 0 20px;
+    }
+
+    .mainContainer {
+        padding: 20px 12px 30px;
+    }
+
+    .mainContainer>h1 {
+        font-size: 23px;
+        margin-bottom: 18px;
+    }
+
+    .leftSectionTitle,
+    .rightSectionTitle {
+        padding: 0 16px;
+    }
+
+    .formWrapper,
+    .orderSummaryWrapper {
+        padding: 16px;
+    }
+
+    .leftSectionTitle h2,
+    .rightSectionTitle h2 {
+        font-size: 17px;
+    }
+}

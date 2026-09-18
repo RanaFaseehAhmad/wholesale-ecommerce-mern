@@ -1,0 +1,87 @@
+.orderDialog {
+    width: 420px;
+    
+}
+.orderDialog :global(.p-dialog-header) {
+    padding: 20px 24px;
+}
+.successContent {
+    text-align: center;
+    padding: 10px 10px 10px;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background-color: #e8f8ee;
+}
+
+.icon i {
+    font-size: 32px;
+    color: #22c55e;
+}
+
+.successContent h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #222;
+}
+
+.successContent p {
+    margin: 0 auto 20px;
+    max-width: 330px;
+
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.orderId {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 12px;
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    background-color: #f7f7f7;
+}
+
+.orderId span {
+    font-size: 13px;
+    color: #777;
+}
+
+.orderId strong {
+    font-size: 14px;
+    color: #222;
+    word-break: break-all;
+}
+
+.continueBtn {
+    width: 100%;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #111;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.continueBtn:hover {
+    opacity: 0.9;
+}

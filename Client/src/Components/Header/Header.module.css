@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -5,30 +6,36 @@
 }
 
 .header {
+    width: 100%;
+    padding: 8px 20px 0;
+
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    border-bottom: 1px solid #DEE2E7;
-    padding: 8px 0;
 }
 
 .headerLeft {
+      width: 100%;
+    max-width: 1400px;
+
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
 }
 
 .wrapper {
     display: none;
+
+    width: 100%;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    margin: 5px 38px 0 0;
 
+    /* margin-top: 6px; */
+    margin-top: 8px;
 }
+
 
 @media only screen and (max-width:864px) {
     .header {
@@ -39,25 +46,54 @@
 }
 
 @media only screen and (max-width:678px) {
+       .header {
+        padding: 8px 12px 0;
+    }
+
     .headerLeft {
         flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
     }
 
     .searchBar {
         order: 3;
-        margin: auto;
+        width: 100%;
+        margin: 5px auto 0;
     }
+
+}
+
+@media only screen and (max-width:465px) {
+
+    .headerLeft{
+    justify-content: center;
+}
+
+}
+@media only screen and (max-width:430px) {
+
+    .headerLeft {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .searchBar {
+        width: 100%;
+    }
+
 }
 
 @media only screen and (max-width:380px) {
-    .headerLeft {
-        display: flex;
+ .headerLeft {
         flex-direction: column;
+        justify-content: center;
+        gap: 10px;
     }
 
     .wrapper {
         justify-content: center;
-        margin: 5px 0 0 0;
+        margin-top: 5px;
     }
 
 }

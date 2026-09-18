@@ -1,7 +1,7 @@
 import style from "./SearchItems.module.css"
 import api from "../../Api/Axios.js";
 
-import {useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -35,7 +35,10 @@ function SearchItems({ className }) {
         }
     }
     useEffect(() => {
-        fetchData()
+        const timer = setTimeout(() => {
+            fetchData()
+        }, 300)
+        return () => clearTimeout(timer)
     }, [inputField])
 
     const selectOption = (productName) => {

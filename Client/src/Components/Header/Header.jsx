@@ -3,7 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css"
 import LogoSection from "./LogoSection"
 import SearchItems from "./SearchItems"
 import ActionButton from "./ActionButton"
-import MobileMenu from "./MobileMenu"
+// import MobileMenu from "./MobileMenu"
 import ItemCategories from "./ItemCategories"
 import DeliverTo from "./DeliverTo"
 
@@ -21,7 +21,7 @@ function Header() {
 
                 <div className={style.wrapper}>
                     <DeliverTo />
-                    <MobileMenu />
+                    {/* <MobileMenu /> */}
 
                 </div>
 

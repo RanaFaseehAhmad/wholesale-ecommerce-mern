@@ -5,43 +5,53 @@ import User from "../Models/userSchema.js";
 export async function addToCart(req, res) {
     try {
         const { productId, quantity } = req.body
-        //  console.log("productId from frontend:", productId)
-        const userId = req.user._id;
+        //  console.log("quantity:", quantity)
 
-        const cart = await Cart.findOne({ user: userId })
+        const cart = await Cart.findOne({ user: req.user._id });
         if (!cart) {
             const result = await Cart.create({
-                user: userId,
+                user: req.user._id,
                 items: [{
                     product: productId,
                     quantity
                 }]
             })
+            await result.populate("items.product")
+            // console.log("create cart :", result)
             return res.status(201).json({
                 message: "New cart created",
-                result
+                result: result.items[0]
             })
         };
 
-        const cartItems = cart.items.find(
-            item => item.product.toString() === productId
-        )
+        const cartItems = cart.items.find(item => {
+            // console.log("PRODUCT:", item.product);
+            return item.product?.toString() === productId
+        })
         if (cartItems) {
             cartItems.quantity += quantity
+            // console.log("cartitems quantity increase:", cartItems)
+            await cart.save()
+            await cart.populate("items.product")
+            return res.status(200).json({
+                message: "Cart item quantity updated",
+                result: cartItems
+            });
         }
-        else {
-            cart.items.push({
-                product: productId,
-                quantity
 
-            })
+        const newItems = {
+            product: productId,
+            quantity: quantity
         }
+        cart.items.push(newItems)
 
+        // console.log("newItems push:", newItems)
         await cart.save()
-
+        await cart.populate("items.product");
+        const addedItem = cart.items[cart.items.length - 1]; // remove the 1 from length and then it become the last added items index
         return res.status(200).json({
             message: "cartItem added",
-            result: cart
+            result: addedItem
         })
 
     } catch (error) {
@@ -51,19 +61,21 @@ export async function addToCart(req, res) {
         })
     }
 }
-
 export async function getCartItems(req, res) {
     try {
-        const result = await Cart.find().populate("items.product")
-        if (result.length < 1) {
+
+        const result = await Cart.findOne({
+            user: req.user._id
+        }).populate("items.product")
+        if (!result) {
             return res.status(404).json({
                 message: "cart is empty"
             })
         }
-        console.log(result)
+        // console.log(result)
         return res.status(200).json({
             message: "get item cart successfully",
-            result
+            result: [result]
         })
     } catch (error) {
         console.log(error)
@@ -76,14 +88,14 @@ export async function increaseQty(req, res) {
     const { productId } = req.body
     // console.log(productId)
     try {
-        const cart = await Cart.findOne()
+        const cart = await Cart.findOne({ user: req.user._id }).populate("items.product")
         if (!cart) {
             return res.status(404).json({
                 message: "cart not found"
             })
         };
         const cartItem = cart.items.find(
-            item => item.product.toString() === productId
+            item => item.product._id.toString() === productId
         )
         // console.log(cartItem)
         if (!cartItem) {
@@ -92,7 +104,9 @@ export async function increaseQty(req, res) {
             });
         }
         cartItem.quantity += 1;
+
         await cart.save();
+        console.log("increase qty :", cartItem)
         return res.status(200).json({
             message: "quantity increased",
             cartItem
@@ -109,14 +123,14 @@ export async function decreaseQty(req, res) {
     const { productId } = req.body
     // console.log(productId)
     try {
-        const cart = await Cart.findOne()
+        const cart = await Cart.findOne({ user: req.user._id }).populate("items.product")
         if (!cart) {
             return res.status(404).json({
                 message: "cart not found"
             })
         }
         const cartItems = cart.items.find(
-            item => item.product.toString() === productId
+            item => item.product._id.toString() === productId
         )
         if (!cartItems) {
             return res.status(404).json({
@@ -143,9 +157,14 @@ export async function decreaseQty(req, res) {
 }
 export async function removeAllcartItems(req, res) {
     try {
-        const result = await Cart.deleteMany({})
+        const cart = await Cart.findOneAndUpdate(
+            { user: req.user._id },
+            { $set: { items: [] } },
+            { new: true }
+        );
         return res.status(200).json({
-            message: "deleted all cartItems"
+            message: "deleted all cartItems",
+            result: cart
         })
     } catch (error) {
         console.log(error)
@@ -157,18 +176,18 @@ export async function removeAllcartItems(req, res) {
 
 export async function removeItem(req, res) {
     const { productId } = req.body
-    // console.log(productId)
+    console.log("remove item", productId)
     try {
-        const cart = await Cart.findOne()
-
+        const cart = await Cart.findOne({ user: req.user._id }).populate("items.product")
         const cartItem = cart.items.find(
-            item => item.product.toString() === productId
+            item => item.product._id.toString() === productId
         )
         if (!cartItem) {
             return res.status(404).json({
                 message: "cartItemn not found",
             })
         }
+
         cart.items = cart.items.filter(
             item => item.product._id.toString() !== productId
         )
@@ -177,7 +196,6 @@ export async function removeItem(req, res) {
             message: "delete item successfuly",
             cart
         })
-
 
     } catch (error) {
         console.log(error)
@@ -209,6 +227,7 @@ export async function guestCartItems(req, res) {
 
 export async function mergeGuestCart(req, res) {
     const { guestCart } = req.body;
+    console.log("guest cart is :", guestCart)
     try {
         let cart = await Cart.findOne({ user: req.user._id });
         if (!cart) {
@@ -220,7 +239,8 @@ export async function mergeGuestCart(req, res) {
                 }))
             });
             return res.status(200).json({
-                message: "cart merged"
+                message: "cart merged",
+                result: cart
             });
         }
 
@@ -241,12 +261,45 @@ export async function mergeGuestCart(req, res) {
         }
         await cart.save();
         return res.status(200).json({
-            message: "cart merged"
+            message: "cart merged",
+            result: cart
         });
     } catch (error) {
         console.log(error)
         return res.status(500).json({
             message: error.message
         });
+    }
+}
+
+export async function removeOrderedItem(req, res) {
+    try {
+        const { selectedProducts } = req.body
+        console.log(req.body)
+
+        if (!selectedProducts || selectedProducts.length === 0) {
+            return res.status(400).json({
+                message: "No products selected"
+            });
+        }
+        const result = await Cart.updateOne(
+            { user: req.user._id },
+            {
+                $pull: {
+                    items: {
+                        product: { $in: selectedProducts }
+                    }
+                }
+            }
+        )
+        return res.status(200).json({
+            message: "removed ordered item from cart"
+        })
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: error.message
+        })
     }
 }

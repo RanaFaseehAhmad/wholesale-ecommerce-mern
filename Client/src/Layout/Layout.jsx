@@ -1,19 +1,24 @@
 import Header from "../Components/Header/Header"
 import NavbarSection from "../Components/Navbar/NavbarSection"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import Footer from "../Components/Footer/Footer"
-// import CountProvider from "../Api/countCartItems"
+
+
 
 function Layout() {
+    const location = useLocation()
+    const hideNavbar = location.pathname === "/auth/checkout"
     return (
-        // <CountProvider>
-            <div>
-                <Header />
-                <NavbarSection />
-                <Outlet />
-                <Footer />
-            </div>
-        // </CountProvider>
+
+        <div>
+            <Header />
+
+            {!hideNavbar && <NavbarSection />}
+
+
+            <Outlet />
+            <Footer />
+        </div>
     )
 }
 

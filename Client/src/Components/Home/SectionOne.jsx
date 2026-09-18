@@ -75,7 +75,7 @@ function SectionOne() {
 
 
             <div className={style.MainSideBlock}>
-                <div className={style.SideBlockLogin}>
+                {/* <div className={style.SideBlockLogin}>
                     <div className={style.SideBlockLoginBox}>
                         <div className={style.SideBlockLoginImg}>
                             <img src="/MainSectionBanner/Avatar.png" alt="" />
@@ -89,7 +89,7 @@ function SectionOne() {
                         <button className={style.SideBlockJoinBtn}>Join now</button>
                         <button className={style.SideBlockLoginBtn}>Login</button>
                     </div>
-                </div>
+                </div> */}
                 <div className={style.SideBlockAd}>
                     <p>Get Us $10 off</p>
                     <p>with a new</p>

@@ -1,8 +1,9 @@
 import express from "express"
-import { createOrder} from "../Controllers/orderController.js"
+import { createOrder } from "../Controllers/orderController.js"
+import { verifyToken } from "../Middleware/verifyToken.js"
 const router = express.Router()
 
-router.post("/createOrder", createOrder)
+router.post("/checkout", verifyToken, createOrder)
 
 
 
